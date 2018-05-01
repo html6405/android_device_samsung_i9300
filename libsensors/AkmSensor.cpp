@@ -146,23 +146,21 @@ int AkmSensor::enable(int32_t handle, int en)
         uint32_t sensor_type;
         switch (what) {
             case SignificantMotion:
-                if (en) {
-                    ALOGD_IF(DEBUG, "AkmSensor: Enabling Significant Motion Sensor.");
-                } else {
-                    ALOGD_IF(DEBUG, "AkmSensor: Disabling Significant Motion Sensor.");
-                }
+                ALOGD_IF(DEBUG, "AkmSensor: %s Significant Motion Sensor.", en ? "Enabling" : "Disabling");
                 sensor_type = SENSOR_TYPE_ACCELEROMETER;
                 break;
             case Accelerometer:
-                if (en) {
-                    ALOGD_IF(DEBUG, "AkmSensor: Enabling accelerometersensor.");
-                } else {
-                    ALOGD_IF(DEBUG, "AkmSensor: Disabling accelerometersensor.");
-                }
+                ALOGD_IF(DEBUG, "AkmSensor: %s accelerometer.", en ? "Enabling" : "Disabling");
                 sensor_type = SENSOR_TYPE_ACCELEROMETER;
                 break;
-            case MagneticField:     sensor_type = SENSOR_TYPE_MAGNETIC_FIELD; break;
-            case Orientation:       sensor_type = SENSOR_TYPE_ORIENTATION;  break;
+            case MagneticField:
+                ALOGD_IF(DEBUG, "AkmSensor: %s magneticfield.", en ? "Enabling" : "Disabling");
+                sensor_type = SENSOR_TYPE_MAGNETIC_FIELD;
+                break;
+            case Orientation:
+                ALOGD_IF(DEBUG, "AkmSensor: %s orientation.", en ? "Enabling" : "Disabling");
+                sensor_type = SENSOR_TYPE_ORIENTATION;
+                break;
         }
 
         short flags = newState;
@@ -199,25 +197,17 @@ int AkmSensor::enable(int32_t handle, int en)
 int AkmSensor::setDelay(int32_t handle, int64_t ns)
 {
     int what = -1;
-    uint32_t sensor_type = 0;
-
+    
     if (ns < 0)
         return -EINVAL;
 
     switch (handle) {
-	/* Significant motion sensors should not set any delay */
+        /* Significant motion sensors should not set any delay */
         case ID_SM: return 0;        
-        case ID_A: sensor_type = SENSOR_TYPE_ACCELEROMETER; break;
-        case ID_M: sensor_type = SENSOR_TYPE_MAGNETIC_FIELD; break;
-    }
-
-    if (sensor_type == 0)
-        return -EINVAL;
-
-    switch (handle) {
         case ID_A: what = Accelerometer; break;
         case ID_M: what = MagneticField; break;
         case ID_O: what = Orientation;   break;
+        default: -EINVAL;
     }
     if (uint32_t(what) >= numSensors)
         return -EINVAL;
@@ -333,32 +323,41 @@ void AkmSensor::processEvent(int code, int value)
             mMotionValue = mPendingEvents[Accelerometer].acceleration.z;
             if ((mEnabled & (1<<SignificantMotion)) &&
                 ((motionValueDiff > 1) || (motionValueDiff < -1))) {
-                ALOGD("AkmSensor: Significant motion detected");
+                ALOGD_IF(DEBUG, "AkmSensor: Significant motion detected");
 	        mPendingMask |= 1<<SignificantMotion;
 	        mPendingEvents[SignificantMotion].data[0] = 1.f;
             }
             break;
         case EVENT_TYPE_MAGV_X:
-            ALOGV("AkmSensor: MAGV_X  =>%d", value);
             mPendingMask |= 1<<MagneticField;
             mPendingEvents[MagneticField].magnetic.x = (float)value * CONVERT_M_X;
             break;
         case EVENT_TYPE_MAGV_Y:
-            ALOGV("AkmSensor: MAGV_Y  =>%d", value);
             mPendingMask |= 1<<MagneticField;
             mPendingEvents[MagneticField].magnetic.y = (float)value * CONVERT_M_Y;
             break;
         case EVENT_TYPE_MAGV_Z:
-            ALOGV("AkmSensor: MAGV_Z  =>%d", value);
             mPendingMask |= 1<<MagneticField;
             mPendingEvents[MagneticField].magnetic.z = (float)value * CONVERT_M_Z;
             break;
-        case EVENT_TYPE_MAGV_ACC:
-            ALOGV("AkmSensor: MAGV_ACC=>%d", value);
-            mPendingMask |= 1<<MagneticField;
-            mPendingEvents[MagneticField].magnetic.status = value;
-        default:
-            ALOGV("AkmSensor: unkown REL event code=%d, value=%d", code, value);
+        case EVENT_TYPE_YAW:
+            mPendingMask |= 1<<Orientation;
+            mPendingEvents[Orientation].orientation.azimuth = value * CONVERT_O_A;
+            break;
+        case EVENT_TYPE_PITCH:
+            mPendingMask |= 1<<Orientation;
+            mPendingEvents[Orientation].orientation.pitch = value * CONVERT_O_P;
+            break;
+        case EVENT_TYPE_ROLL:
+            mPendingMask |= 1<<Orientation;
+            mPendingEvents[Orientation].orientation.roll = value * CONVERT_O_R;
+            break;
+        case EVENT_TYPE_ORIENT_STATUS:
+            uint8_t status = uint8_t(value & SENSOR_STATE_MASK);
+            if (status == 4)
+                status = 0;
+            mPendingMask |= 1<<Orientation;
+            mPendingEvents[Orientation].orientation.status = status;
             break;
     }
 }
