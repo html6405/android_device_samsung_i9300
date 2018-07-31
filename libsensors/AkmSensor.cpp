@@ -261,11 +261,29 @@ int AkmSensor::readEvents(sensors_event_t* data, int count)
     if (count < 1)
         return -EINVAL;
 
+    int numEventReceived = 0;
+    int sensorId = ID_A;
+    while (mFlushed) {
+        if (mFlushed & (1 << sensorId)) { /* Send flush META_DATA_FLUSH_COMPLETE immediately */
+            sensors_event_t sensor_event;
+            memset(&sensor_event, 0, sizeof(sensor_event));
+            sensor_event.version = META_DATA_VERSION;
+            sensor_event.type = SENSOR_TYPE_META_DATA;
+            sensor_event.meta_data.sensor = sensorId;
+            sensor_event.meta_data.what = 0;
+            *data++ = sensor_event;
+            count--;
+            numEventReceived++;
+            mFlushed &= ~(0x01 << sensorId);
+            ALOGD_IF(DEBUG, "AkmSensor: %s Flushed sensorId: %d", __func__, sensorId);
+        }
+        sensorId++;
+    }
+
     ssize_t n = mInputReader.fill(data_fd);
     if (n < 0)
         return n;
 
-    int numEventReceived = 0;
     input_event const* event;
 
     while (count && mInputReader.readEvent(&event)) {
@@ -364,4 +382,14 @@ void AkmSensor::processEvent(int code, int value)
 
 int AkmSensor::batch(int handle, int flags, int64_t period_ns, int64_t timeout) {
     return 0;
+}
+
+int AkmSensor::flush(int handle)
+{
+    if (mEnabled){
+        mFlushed |= (1 << handle);
+        ALOGD("AkmSensor: %s: handle: %d", __func__, handle);
+        return 0;
+    }
+    return -EINVAL;
 }
