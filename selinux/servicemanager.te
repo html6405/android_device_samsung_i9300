@@ -1,3 +1,0 @@
-allow servicemanager glgps:dir { search read write };
-allow servicemanager glgps:file { open read write };
-allow servicemanager glgps:process getattr;

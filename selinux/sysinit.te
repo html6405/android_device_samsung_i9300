@@ -1,4 +1,0 @@
-allow sysinit firmware_exynos:dir { read search open getattr };
-allow sysinit firmware_exynos:dir { read search open getattr write remove_name add_name };
-allow sysinit firmware_exynos:file { read open write getattr setattr create unlink };
-allow sysinit sysinit:capability { dac_override chown fowner fsetid };
