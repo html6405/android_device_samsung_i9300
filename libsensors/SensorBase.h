@@ -62,7 +62,6 @@ public:
     virtual int enable(int32_t handle, int enabled) = 0;
     virtual int batch(int handle, int flags, int64_t period_ns, int64_t timeout);
     virtual int flush(int handle);
-
 };
 
 /*****************************************************************************/

@@ -46,6 +46,7 @@ public:
     virtual int enable(int32_t handle, int enabled);
     virtual int readEvents(sensors_event_t* data, int count);
     void processEvent(int code, int value);
+    int batch(int handle, int flags, int64_t period_ns, int64_t timeout);
 
 private:
     int loadAKMLibrary();
