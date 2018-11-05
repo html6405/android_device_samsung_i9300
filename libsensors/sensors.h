@@ -97,6 +97,12 @@ __BEGIN_DECLS
 #define CONVERT_M_Y                 (-CONVERT_M)
 #define CONVERT_M_Z                 (CONVERT_M)
 
+/* conversion of orientation data to degree units */
+#define CONVERT_O                   (1.0f/64.0f)
+#define CONVERT_O_A                 (CONVERT_O)
+#define CONVERT_O_P                 (CONVERT_O)
+#define CONVERT_O_R                 (CONVERT_O)
+
 // conversion of gyro data to SI units (radian/sec)
 #define RANGE_GYRO                  (500.0f*(float)M_PI/180.0f)
 #define CONVERT_GYRO                ((70.0f / 4000.0f) * ((float)M_PI / 180.0f))
