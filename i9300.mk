@@ -15,6 +15,7 @@
 #
 
 LOCAL_PATH := device/samsung/i9300
+COMMON_PATH := device/samsung/smdk4412-common
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -30,7 +31,7 @@ PRODUCT_COPY_FILES += \
 
 # HIDL
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+    $(COMMON_PATH)/manifest.xml:system/vendor/manifest.xml
 
 # Audio
 PRODUCT_COPY_FILES += \
