@@ -108,4 +108,3 @@ service gps-daemon /system/bin/sh /system/bin/gps_daemon.sh
     socket gps seqpacket 0660 gps system
     user gps
     group system inet sdcard_rw gps
-    seclabel u:r:glgps:s0
