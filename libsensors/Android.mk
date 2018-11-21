@@ -21,25 +21,22 @@ ifneq ($(TARGET_SIMULATOR),true)
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := sensors.$(TARGET_BOOTLOADER_BOARD_NAME)
+LOCAL_MODULE := sensors.$(TARGET_BOARD_PLATFORM)
 
 LOCAL_MODULE_RELATIVE_PATH := hw
 
 LOCAL_MODULE_TAGS := optional
-
 LOCAL_VENDOR_MODULE := true
-
-LOCAL_CFLAGS := -DLOG_TAG=\"sensorscpp\"
-LOCAL_SRC_FILES :=  \
-        sensors.cpp \
-        SensorBase.cpp \
-        LightSensor.cpp	\
-        ProximitySensor.cpp	\
-        AkmSensor.cpp \
-        GyroSensor.cpp \
-        InputEventReader.cpp \
-        AccelSensor.cpp \
-        PressureSensor.cpp
+LOCAL_CFLAGS := -DALOG_TAG=\"Sensors\"
+LOCAL_SRC_FILES := 						\
+				sensors.cpp 			\
+				SensorBase.cpp			\
+				LightSensor.cpp			\
+				ProximitySensor.cpp		\
+				AkmSensor.cpp                   \
+				GyroSensor.cpp                  \
+				PressureSensor.cpp              \
+                                InputEventReader.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_PRELINK_MODULE := false

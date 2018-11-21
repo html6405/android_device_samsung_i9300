@@ -40,7 +40,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.smdk4x12
+    sensors.exynos4
 
 # Power
 PRODUCT_PACKAGES += \

@@ -21,16 +21,11 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
-#include <stdio.h>
 #include <cstring>
-#define ALOG_NDEBUG 0
-#define LOG_NDEBUG 0
+
 #include <cutils/log.h>
 
 #include "ProximitySensor.h"
-#include "SensorBase.h"
-
-#define LOGTAG "ProximitySensor"
 
 /*****************************************************************************/
 
@@ -46,7 +41,6 @@ ProximitySensor::ProximitySensor()
     memset(mPendingEvent.data, 0, sizeof(mPendingEvent.data));
 
     if (data_fd) {
-        ALOGE("%s: got input_name %s", LOGTAG, input_name);
         strcpy(input_sysfs_path, "/sys/class/input/");
         strcat(input_sysfs_path, input_name);
         strcat(input_sysfs_path, "/device/");
@@ -71,28 +65,26 @@ int ProximitySensor::setInitialState() {
     return 0;
 }
 
-int ProximitySensor::setDelay(int32_t handle, int64_t ns)
-{
-    // unsupported
-    return 0;
-}
-
-int ProximitySensor::enable(int32_t handle, int en) {
-    int fd;
+int ProximitySensor::enable(int32_t, int en) {
     int flags = en ? 1 : 0;
-    int err;
-    ALOGD("%s: Enable: %i", __func__, en);
     if (flags != mEnabled) {
+        int fd;
         strcpy(&input_sysfs_path[input_sysfs_path_len], "enable");
         fd = open(input_sysfs_path, O_RDWR);
         if (fd >= 0) {
-            write(fd, en == 1 ? "1" : "0", 2);
+            char buf[2];
+            buf[1] = 0;
+            if (flags) {
+                buf[0] = '1';
+            } else {
+                buf[0] = '0';
+            }
+            write(fd, buf, sizeof(buf));
             close(fd);
             mEnabled = flags;
             setInitialState();
             return 0;
         }
-
         return -1;
     }
     return 0;
@@ -125,10 +117,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
         int type = event->type;
         if (type == EV_ABS) {
             if (event->code == EVENT_TYPE_PROXIMITY) {
-                if (event->value != -1) {
-                    // FIXME: not sure why we're getting -1 sometimes
-                    mPendingEvent.distance = indexToValue(event->value);
-                }
+                mPendingEvent.distance = indexToValue(event->value);
             }
         } else if (type == EV_SYN) {
             mPendingEvent.timestamp = timevalToNano(event->time);
@@ -138,7 +127,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
                 numEventReceived++;
             }
         } else {
-            ALOGE("%s: unknown event (type=%d, code=%d)",LOGTAG,
+            ALOGE("ProximitySensor: unknown event (type=%d, code=%d)",
                     type, event->code);
         }
         mInputReader.next();
@@ -149,6 +138,6 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
 
 float ProximitySensor::indexToValue(size_t index) const
 {
-    ALOGV("%s: Index = %zu",LOGTAG, index);
+    ALOGV("ProximitySensor: Index = %zu", index);
     return index * PROXIMITY_THRESHOLD_CM;
 }
