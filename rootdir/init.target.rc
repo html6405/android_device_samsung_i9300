@@ -1,3 +1,5 @@
+import /init.target.usb.rc
+
 on init
     export LD_SHIM_LIBS /system/lib/libsec-ril.so|libsamsung_symbols.so
 # ko files for FM Radio

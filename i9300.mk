@@ -27,7 +27,8 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.smdk4x12:root/fstab.smdk4x12 \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc
+    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/init.target.usb.rc:root/init.target.usb.rc
 
 # HIDL
 PRODUCT_COPY_FILES += \
@@ -111,5 +112,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+# UMS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/ums_init.sh:system/bin/ums_init.sh
 
 $(call inherit-product-if-exists, vendor/samsung/i9300/i9300-vendor.mk)
