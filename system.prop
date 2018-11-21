@@ -14,3 +14,7 @@ ro.ril.telephony.nstrings=4
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+
+# SELinux status spoofing
+sys.selinux_enabled=true
+sys.selinux_enforcing=true
