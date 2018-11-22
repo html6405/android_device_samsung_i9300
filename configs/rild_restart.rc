@@ -1,0 +1,7 @@
+service radioreset /system/bin/restart_rild.sh
+    class main
+    oneshot
+    disabled
+
+on property:gsm.radioreset=true
+    start radioreset
