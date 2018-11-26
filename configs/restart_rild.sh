@@ -1,31 +1,38 @@
 #!/system/bin/sh
 
+#set -x
+
+reset_threshold=5
+
 do_reset_radio() {
-  if test -f /tmp/.gsmreset.lock ; then
+  if test -f /data/local/.gsmreset.lock ; then
     return
   fi
 
-  touch /tmp/.gsmreset.lock
-
-  status=$(getprop gsm.status)
-  # exit if in flight mode
-  if [ "$status" == "2" ] ; then
-    return
+  airplane_mode=$(settings get global airplane_mode_on)
+  if [ "$airplane_mode" == "1" ] ; then
+    return;
   fi
 
-  subId=$(getprop gsm.subid)
+  touch /data/local/.gsmreset.lock
+
   resetCount=$(getprop gsm.resetcount)
   if [ -z $resetCount ] ; then
     resetCount=0
   fi
-
-  if [ "$subId" != "1" ] ; then
-    sleep 10
+  
+  if [ $resetCount -ge $reset_threshold ] ; then
+    return
   fi
 
   status=$(getprop gsm.status)
-  if [ "$status" == "2" ] ; then
-    return
+  
+  subId=$(getprop gsm.subid)
+
+  
+
+  if [ "$subId" != "1" ] ; then
+    sleep 10
   fi
 
   if [ "$subId" != "1" ] ; then
@@ -35,7 +42,7 @@ do_reset_radio() {
     setprop gsm.resetcount $(( $resetCount + 1 ))
   fi
 
-  rm -f /tmp/.gsmreset.lock
+  rm -f /data/local/.gsmreset.lock
   setprop gsm.radioreset false
 }
 
