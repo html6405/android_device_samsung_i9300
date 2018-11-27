@@ -9,11 +9,6 @@ do_reset_radio() {
     return
   fi
 
-  airplane_mode=$(settings get global airplane_mode_on)
-  if [ "$airplane_mode" == "1" ] ; then
-    return;
-  fi
-
   touch /data/local/.gsmreset.lock
 
   resetCount=$(getprop gsm.resetcount)
@@ -21,15 +16,21 @@ do_reset_radio() {
     resetCount=0
   fi
   
+  # Allow up to one radio reset in airplane mode
+  airplane_mode=$(settings get global airplane_mode_on)
+  if [ "$airplane_mode" == "1" ] && [ $resetCount -ge 1 ] ; then
+    return;
+  fi
+  
+  # No radio after several resets?
+  # Probably something goes wrong, we have nothing to do.
   if [ $resetCount -ge $reset_threshold ] ; then
     return
   fi
 
-  status=$(getprop gsm.status)
+  #status=$(getprop gsm.status)
   
   subId=$(getprop gsm.subid)
-
-  
 
   if [ "$subId" != "1" ] ; then
     sleep 10
