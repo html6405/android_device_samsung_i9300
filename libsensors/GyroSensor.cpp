@@ -26,16 +26,18 @@
 
 #include "GyroSensor.h"
 
+#define LOGTAG "GyroSensor"
+
 #define FETCH_FULL_EVENT_BEFORE_RETURN 1
 #define IGNORE_EVENT_TIME 350000000
 /*****************************************************************************/
 
 GyroSensor::GyroSensor()
     : SensorBase(NULL, "gyro_sensor"),
-      mEnabled(0),
-      mInputReader(4),
-      mHasPendingEvent(false),
-      mEnabledTime(0)
+    mEnabled(0),
+    mInputReader(4),
+    mHasPendingEvent(false),
+    mEnabledTime(0)
 {
     mPendingEvent.version = sizeof(sensors_event_t);
     mPendingEvent.sensor = ID_GY;
@@ -63,8 +65,8 @@ int GyroSensor::setInitialState() {
     struct input_absinfo absinfo_z;
     float value;
     if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_GYRO_X), &absinfo_x) &&
-        !ioctl(data_fd, EVIOCGABS(EVENT_TYPE_GYRO_X), &absinfo_y) &&
-        !ioctl(data_fd, EVIOCGABS(EVENT_TYPE_GYRO_X), &absinfo_z)) {
+            !ioctl(data_fd, EVIOCGABS(EVENT_TYPE_GYRO_X), &absinfo_y) &&
+            !ioctl(data_fd, EVIOCGABS(EVENT_TYPE_GYRO_X), &absinfo_z)) {
         value = absinfo_x.value;
         mPendingEvent.data[0] = value * CONVERT_GYRO_X;
         value = absinfo_x.value;
@@ -76,26 +78,18 @@ int GyroSensor::setInitialState() {
     return 0;
 }
 
-int GyroSensor::enable(int32_t, int en) {
+int GyroSensor::enable(int32_t handle, int en) {
     int flags = en ? 1 : 0;
+    int fd;
     if (flags != mEnabled) {
-        int fd;
         strcpy(&input_sysfs_path[input_sysfs_path_len], "enable");
         fd = open(input_sysfs_path, O_RDWR);
-        if (fd >= 0) {
-            char buf[2];
-            int err;
-            buf[1] = 0;
-            if (flags) {
-                buf[0] = '1';
-                mEnabledTime = getTimestamp() + IGNORE_EVENT_TIME;
-            } else {
-                buf[0] = '0';
-            }
-            err = write(fd, buf, sizeof(buf));
+        if (fd >= 0){
+            write(fd, en == 1 ? "1" : "0", 2);
             close(fd);
             mEnabled = flags;
             setInitialState();
+
             return 0;
         }
         return -1;
@@ -107,14 +101,15 @@ bool GyroSensor::hasPendingEvents() const {
     return mHasPendingEvent;
 }
 
-int GyroSensor::setDelay(int32_t handle, int64_t delay_ns)
+int GyroSensor::setDelay(int32_t handle, int64_t ns)
 {
     int fd;
+
     strcpy(&input_sysfs_path[input_sysfs_path_len], "poll_delay");
     fd = open(input_sysfs_path, O_RDWR);
     if (fd >= 0) {
         char buf[80];
-        sprintf(buf, "%lld", delay_ns);
+        sprintf(buf, "%lld", ns);
         write(fd, buf, strlen(buf)+1);
         close(fd);
         return 0;
@@ -165,7 +160,7 @@ again:
                 count--;
             }
         } else {
-            ALOGE("GyroSensor: unknown event (type=%d, code=%d)",
+            ALOGE("%s: unknown event (type=%d, code=%d)", LOGTAG,
                     type, event->code);
         }
         mInputReader.next();

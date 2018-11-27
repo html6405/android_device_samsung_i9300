@@ -21,6 +21,7 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <sys/select.h>
+#include <pthread.h>
 #include <cstring>
 
 #include <cutils/log.h>
@@ -136,5 +137,6 @@ int SensorBase::openInput(const char* inputName) {
     }
     closedir(dir);
     ALOGE_IF(fd<0, "couldn't find '%s' input device", inputName);
+
     return fd;
 }
