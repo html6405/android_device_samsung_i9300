@@ -15,6 +15,9 @@ ro.ril.telephony.nstrings=4
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
 
+# Uncomment line below to enable Navigation Bar
+#qemu.hw.mainkeys=0
+
 # SELinux status spoofing
 sys.selinux_enabled=true
 sys.selinux_enforcing=true
