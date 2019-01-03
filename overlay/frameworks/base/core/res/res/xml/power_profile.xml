@@ -49,6 +49,7 @@
       <value>1200000</value>
       <value>1400000</value>
       <value>1600000</value>
+      <value>1800000</value>
   </array>
   <!-- Power consumption when CPU is idle -->
   <item name="cpu.idle">1.4</item>
@@ -63,6 +64,7 @@
       <value>170.0</value>
       <value>200.0</value>
       <value>230.0</value>
+      <value>260.0</value>
   </array>
   <!-- This is the battery capacity in mAh -->
   <item name="battery.capacity">2100</item>
