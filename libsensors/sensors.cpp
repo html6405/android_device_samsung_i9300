@@ -62,6 +62,7 @@
 #define SENSORS_PROXIMITY_HANDLE        4
 #define SENSORS_GYROSCOPE_HANDLE        5
 #define SENSORS_PRESSURE_HANDLE         6
+#define SENSORS_SIGNIFICANT_MOTION_HANDLE 7
 
 #define AKM_FTRACE 0
 #define AKM_DEBUG 0
@@ -103,6 +104,11 @@ static const struct sensor_t sSensorList[] = {
           1, SENSORS_LIGHT_HANDLE,
           SENSOR_TYPE_LIGHT, 121240.0f, 1.0f, 0.2f, 0, 0, 0,
           SENSOR_STRING_TYPE_LIGHT, "", 0, SENSOR_FLAG_ON_CHANGE_MODE, {0, 0} },
+        { "Significant motion sensor (Accelerometer)",
+          "STMicroelectronics",
+          1, SENSORS_SIGNIFICANT_MOTION_HANDLE,
+          SENSOR_TYPE_SIGNIFICANT_MOTION, 1.0f, 1.0f, 0.23f, 0, 0, 0,
+          "", "", 0, SENSOR_FLAG_WAKE_UP, {0, 0},},
 };
 
 
@@ -166,6 +172,7 @@ private:
             case ID_A:
             case ID_M:
             case ID_O:
+            case ID_SM:
                 return akm;
             case ID_P:
                 return proximity;
