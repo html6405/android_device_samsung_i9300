@@ -16,17 +16,17 @@ ro.ril.telephony.nstrings=4
 ro.egl.destroy_after_detach=true
 
 # RAM optimizations
-persist.sys.ram_minfree=138240
+#persist.sys.ram_minfree=138240
 config.disable_atlas=true
 # ro.sys.fw.trim_enable_memory=805306368
-ro.sys.fw.trim_enable_memory=536870912
+ro.sys.fw.trim_enable_memory=736870912
 ro.sys.fw.use_trim_settings=true
 ro.sys.fw.empty_app_percent=25
 ro.sys.fw.trim_empty_percent=50
 ro.sys.fw.trim_cache_percent=50
-ro.sys.fw.bg_apps_limit=16
-ro.sys.fw.bservice_limit=3
-ro.sys.fw.bservice_age=3000
+ro.sys.fw.bg_apps_limit=32
+ro.sys.fw.bservice_limit=7
+ro.sys.fw.bservice_age=6000
 ro.sys.fw.bservice_enable=true
 # ro.am.reschedule_service=true
 
