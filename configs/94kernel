@@ -76,7 +76,7 @@ echo 1 > /sys/class/misc/boeffla_sound/fll_tuning
 #AC charge rate
 #This configures the charging rate when you load your phone via an AC charger
 #-->min:0 (off), max:2000, unit:mA, steps:100
-#echo 1700 > /sys/kernel/charge_levels/charge_level_ac
+#echo 1500 > /sys/kernel/charge_levels/charge_level_ac
 
 #USB charge rate
 #This configures the charging rate when you load your phone via an USB
@@ -101,3 +101,37 @@ echo 1 > /sys/class/misc/boeffla_sound/fll_tuning
 
 # Enable battery charge led notification
 echo 1 > /sys/module/leds_an30259a/parameters/led_switch
+
+#--------------- Kernel Tweaks ---------------------#
+# Swappiness
+echo 60 > /proc/sys/vm/swappiness
+
+
+# zRAM
+SIZE=300
+
+# don't touch lines below
+#-------------------------------------------------------
+change_zram_size() {
+	swapoff /dev/block/zram0
+	echo 1 > /sys/devices/virtual/block/zram0/reset
+	echo $(( $SIZE * 1024 * 1024 )) > /sys/devices/virtual/block/zram0/disksize
+	mkswap /dev/block/zram0
+	swapon /dev/block/zram0
+}
+sleep 10 && change_zram_size &
+#--------------------------------------------------------
+
+# LowMemoryKiller
+ADJ="0,3,6,10,13,15"
+MINFREE="4096,8048,10120,14280,18244,25000"
+
+# don't touch lines below
+#---------------------------------------------------------
+chmod 0644 /sys/module/lowmemorykiller/parameters/minfree
+chmod 0644 /sys/module/lowmemorykiller/parameters/adj
+echo $ADJ > /sys/module/lowmemorykiller/parameters/adj
+echo $MINFREE > /sys/module/lowmemorykiller/parameters/minfree
+chmod 0444 /sys/module/lowmemorykiller/parameters/adj
+chmod 0444 /sys/module/lowmemorykiller/parameters/minfree
+#-----------------------------------------------------------
