@@ -44,4 +44,4 @@ ro.hwui.texture_cache_size=8
 
 # SELinux status spoofing
 sys.selinux_enabled=true
-#sys.selinux_enforcing=true
+sys.selinux_enforcing=true
