@@ -12,8 +12,8 @@
 /dev/block/platform/dw_mmc/by-name/OTA 			/misc 				emmc		defaults										defaults 
 
 # vold-managed volumes ("block device" is actually a sysfs devpath)
-/devices/platform/s3c-sdhci.2/mmc_host/mmc1*/mmcblk1		/storage/sdcard1		auto		defaults		voldmanaged=sdcard1:auto,encryptable=userdata
-/devices/platform/s5p-ehci*						/storage/usbdisk0		auto		defaults		voldmanaged=usb:auto
+/devices/platform/s3c-sdhci.2/mmc_host/mmc1*/mmcblk1		auto		auto		defaults		voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/s5p-ehci*					auto		auto		defaults		voldmanaged=usb:auto
 
 # recovery
 /dev/block/platform/dw_mmc/by-name/BOOT			/boot				emmc		defaults		recoveryonly
