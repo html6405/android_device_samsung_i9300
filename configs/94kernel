@@ -96,6 +96,10 @@ echo 1 > /sys/class/misc/boeffla_sound/fll_tuning
 #By switching this option to on, the further deduction of 100 mA after detecting a stable charging power will not be done. Use at your own risk!
 #echo 0 > /sys/kernel/charge_levels/ignore_safety_margin
 
+#--------------- Display brightness config -----------------#
+
+# Uncomment for a brighter config
+#echo 0 > /sys/devices/platform/s5p-dsim.0/s6e8aa0/backlight/panel/brightness_config
 
 #--------------- LED notifications -----------------#
 
