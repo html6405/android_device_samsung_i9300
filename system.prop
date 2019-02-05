@@ -42,9 +42,5 @@ ro.hwui.texture_cache_size=8
 # Uncomment line below to enable Navigation Bar
 #qemu.hw.mainkeys=0
 
-# SELinux status spoofing
-sys.selinux_enabled=true
-sys.selinux_enforcing=true
-
 # Camera API
 persist.camera.HAL3.enabled=1
