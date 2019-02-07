@@ -140,6 +140,23 @@ int smdk4x12_sensors_set_delay(struct sensors_poll_device_t *dev, int handle,
 	return 0;
 }
 
+int mFlushed;
+
+static int smdk4x12_sensors_batch(struct sensors_poll_device_1 *dev, int handle,
+        int flags, int64_t period_ns, int64_t timeout) {
+	(void)flags;
+	(void)timeout;
+	smdk4x12_sensors_set_delay((struct sensors_poll_device_t *)dev, handle, period_ns);
+	return 0;
+}
+
+static int smdk4x12_sensors_flush(struct sensors_poll_device_1 *dev, int handle) {
+	(void)dev;
+	mFlushed |= (1 << handle);
+	ALOGD("%s: handle: %d", __func__, handle);
+	return 0;
+}
+
 int smdk4x12_sensors_poll(struct sensors_poll_device_t *dev,
 	struct sensors_event_t* data, int count)
 {
@@ -234,12 +251,14 @@ int smdk4x12_sensors_open(const struct hw_module_t* module, const char *id,
 	smdk4x12_sensors_device = (struct smdk4x12_sensors_device *)
 		calloc(1, sizeof(struct smdk4x12_sensors_device));
 	smdk4x12_sensors_device->device.common.tag = HARDWARE_DEVICE_TAG;
-	smdk4x12_sensors_device->device.common.version = 0;
+	smdk4x12_sensors_device->device.common.version = SENSORS_DEVICE_API_VERSION_1_3;
 	smdk4x12_sensors_device->device.common.module = (struct hw_module_t *) module;
 	smdk4x12_sensors_device->device.common.close = smdk4x12_sensors_close;
 	smdk4x12_sensors_device->device.activate = smdk4x12_sensors_activate;
 	smdk4x12_sensors_device->device.setDelay = smdk4x12_sensors_set_delay;
 	smdk4x12_sensors_device->device.poll = smdk4x12_sensors_poll;
+	smdk4x12_sensors_device->device.batch = smdk4x12_sensors_batch;
+	smdk4x12_sensors_device->device.flush = smdk4x12_sensors_flush;
 	smdk4x12_sensors_device->handlers = smdk4x12_sensors_handlers;
 	smdk4x12_sensors_device->handlers_count = smdk4x12_sensors_handlers_count;
 	smdk4x12_sensors_device->poll_fds = (struct pollfd *)
