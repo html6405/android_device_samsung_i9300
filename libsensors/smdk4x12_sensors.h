@@ -53,7 +53,7 @@ struct smdk4x12_sensors_handlers {
 };
 
 struct smdk4x12_sensors_device {
-	struct sensors_poll_device_t device;
+	sensors_poll_device_1_t  device;
 
 	struct smdk4x12_sensors_handlers **handlers;
 	int handlers_count;

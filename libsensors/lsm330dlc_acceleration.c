@@ -320,6 +320,8 @@ float lsm330dlc_acceleration_convert(int value)
 	return (float) (value / 1000.f) * (GRAVITY_EARTH / 1024.0f);
 }
 
+extern int mFlushed;
+
 int lsm330dlc_acceleration_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct sensors_event_t *event)
 {
@@ -327,11 +329,24 @@ int lsm330dlc_acceleration_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct input_event input_event;
 	int input_fd;
 	int rc;
+	int sensorId = SENSOR_TYPE_ACCELEROMETER;
 
 //	ALOGD("%s(%p, %p)", __func__, handlers, event);
 
 	if (handlers == NULL || handlers->data == NULL || event == NULL)
 		return -EINVAL;
+
+	if (mFlushed & (1 << sensorId)) { /* Send flush META_DATA_FLUSH_COMPLETE immediately */
+		sensors_event_t sensor_event;
+		memset(&sensor_event, 0, sizeof(sensor_event));
+		sensor_event.version = META_DATA_VERSION;
+		sensor_event.type = SENSOR_TYPE_META_DATA;
+		sensor_event.meta_data.sensor = sensorId;
+		sensor_event.meta_data.what = 0;
+		*event++ = sensor_event;
+		mFlushed &= ~(0x01 << sensorId);
+		ALOGD("AkmSensor: %s Flushed sensorId: %d", __func__, sensorId);
+	}
 
 	data = (struct lsm330dlc_acceleration_data *) handlers->data;
 
