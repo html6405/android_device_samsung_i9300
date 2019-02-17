@@ -33,82 +33,11 @@
 struct lsm330dlc_acceleration_data {
 	int64_t delay;
 	int device_fd;
-	int uinput_fd;
 
 	pthread_t thread;
 	pthread_mutex_t mutex;
 	int thread_continue;
 };
-
-void *lsm330dlc_acceleration_thread(void *thread_data)
-{
-	struct smdk4x12_sensors_handlers *handlers = NULL;
-	struct lsm330dlc_acceleration_data *data = NULL;
-	struct input_event event;
-	struct timeval time;
-	struct lsm330dlc_acc acceleration_data;
-	int64_t before, after;
-	int diff;
-	int device_fd;
-	int uinput_fd;
-	int rc;
-
-	if (thread_data == NULL)
-		return NULL;
-
-	handlers = (struct smdk4x12_sensors_handlers *) thread_data;
-	if (handlers->data == NULL)
-		return NULL;
-
-	data = (struct lsm330dlc_acceleration_data *) handlers->data;
-
-	device_fd = data->device_fd;
-	if (device_fd < 0)
-		return NULL;
-
-	uinput_fd = data->uinput_fd;
-	if (uinput_fd < 0)
-		return NULL;
-
-	while (data->thread_continue) {
-		pthread_mutex_lock(&data->mutex);
-		if (!data->thread_continue)
-			break;
-
-		while (handlers->activated) {
-			gettimeofday(&time, NULL);
-			before = timestamp(&time);
-
-			memset(&acceleration_data, 0, sizeof(acceleration_data));
-
-			rc = ioctl(device_fd, LSM330DLC_ACCEL_IOCTL_READ_XYZ, &acceleration_data);
-			if (rc < 0) {
-				ALOGE("%s: Unable to get lsm330dlc acceleration data", __func__);
-				return NULL;
-			}
-
-			input_event_set(&event, EV_REL, REL_X, (int) (acceleration_data.x * 1000));
-			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Y, (int) (acceleration_data.y * 1000));
-			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_REL, REL_Z, (int) (acceleration_data.z * 1000));
-			write(uinput_fd, &event, sizeof(event));
-			input_event_set(&event, EV_SYN, 0, 0);
-			write(uinput_fd, &event, sizeof(event));
-
-next:
-			gettimeofday(&time, NULL);
-			after = timestamp(&time);
-
-			diff = (int) (data->delay - (after - before)) / 1000;
-			if (diff <= 0)
-				continue;
-
-			usleep(diff);
-		}
-	}
-	return NULL;
-}
 
 int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
 	struct smdk4x12_sensors_device *device)
@@ -134,13 +63,7 @@ int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
 		goto error;
 	}
 
-	uinput_fd = uinput_rel_create("acceleration");
-	if (uinput_fd < 0) {
-		ALOGD("%s: Unable to create uinput", __func__);
-		goto error;
-	}
-
-	input_fd = input_open("acceleration");
+	input_fd = input_open("accelerometer_sensor");
 	if (input_fd < 0) {
 		ALOGE("%s: Unable to open acceleration input", __func__);
 		goto error;
@@ -154,15 +77,7 @@ int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
 	pthread_attr_init(&thread_attr);
 	pthread_attr_setdetachstate(&thread_attr, PTHREAD_CREATE_DETACHED);
 
-	rc = pthread_create(&data->thread, &thread_attr, lsm330dlc_acceleration_thread, (void *) handlers);
-	if (rc < 0) {
-		ALOGE("%s: Unable to create lsm330dlc acceleration thread", __func__);
-		pthread_mutex_destroy(&data->mutex);
-		goto error;
-	}
-
 	data->device_fd = device_fd;
-	data->uinput_fd = uinput_fd;
 	handlers->poll_fd = input_fd;
 	handlers->data = (void *) data;
 
@@ -171,9 +86,6 @@ int lsm330dlc_acceleration_init(struct smdk4x12_sensors_handlers *handlers,
 error:
 	if (data != NULL)
 		free(data);
-
-	if (uinput_fd >= 0)
-		close(uinput_fd);
 
 	if (input_fd >= 0)
 		close(input_fd);
@@ -203,12 +115,6 @@ int lsm330dlc_acceleration_deinit(struct smdk4x12_sensors_handlers *handlers)
 	pthread_mutex_unlock(&data->mutex);
 
 	pthread_mutex_destroy(&data->mutex);
-
-	if (data->uinput_fd >= 0) {
-		uinput_destroy(data->uinput_fd);
-		close(data->uinput_fd);
-	}
-	data->uinput_fd = -1;
 
 	if (handlers->poll_fd >= 0)
 		close(handlers->poll_fd);
@@ -317,7 +223,7 @@ int lsm330dlc_acceleration_set_delay(struct smdk4x12_sensors_handlers *handlers,
 
 float lsm330dlc_acceleration_convert(int value)
 {
-	return (float) (value / 1000.f) * (GRAVITY_EARTH / 1024.0f);
+	return (float) (value) * (GRAVITY_EARTH / 1024.0f);
 }
 
 extern int mFlushed;
