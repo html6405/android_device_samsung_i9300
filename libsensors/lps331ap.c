@@ -181,17 +181,32 @@ float lps331ap_convert(int value)
 	return value / 4096.0f;
 }
 
+extern int mFlushed;
+
 int lps331ap_get_data(struct smdk4x12_sensors_handlers *handlers,
 	struct sensors_event_t *event)
 {
 	struct input_event input_event;
 	int input_fd;
 	int rc;
+	int sensorId = SENSOR_TYPE_PRESSURE;
 
 //	ALOGD("%s(%p, %p)", __func__, handlers, event);
 
 	if (handlers == NULL || event == NULL)
 		return -EINVAL;
+
+	if (mFlushed & (1 << sensorId)) { /* Send flush META_DATA_FLUSH_COMPLETE immediately */
+		sensors_event_t sensor_event;
+		memset(&sensor_event, 0, sizeof(sensor_event));
+		sensor_event.version = META_DATA_VERSION;
+		sensor_event.type = SENSOR_TYPE_META_DATA;
+		sensor_event.meta_data.sensor = sensorId;
+		sensor_event.meta_data.what = 0;
+		*event++ = sensor_event;
+		mFlushed &= ~(0x01 << sensorId);
+		ALOGD("AkmSensor: %s Flushed sensorId: %d", __func__, sensorId);
+	}
 
 	input_fd = handlers->poll_fd;
 	if (input_fd < 0)
