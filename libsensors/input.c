@@ -108,7 +108,7 @@ int uinput_rel_create(const char *name)
 		goto error;
 	}
 
-	usleep(3000);
+	usleep(30000);
 
 	return uinput_fd;
 
