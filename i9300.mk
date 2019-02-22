@@ -69,15 +69,6 @@ PRODUCT_PACKAGES += \
 # Proprietary blobs dependency on libstlport
 PRODUCT_PACKAGES +=  libstlport
 
-# NFC
-PRODUCT_PACKAGES += \
-	nfc.exynos4 \
-    libnfc \
-    libnfc_jni \
-    Nfc \
-    Tag
-
-# Camera
 PRODUCT_PACKAGES += \
     camera.smdk4x12
 
@@ -87,21 +78,8 @@ PRODUCT_PACKAGES += \
 	fsck.f2fs \
 	mkfs.f2fs
 
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
-
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
-endif
-
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
-
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras
+#PRODUCT_PACKAGES += \
+#    com.android.nfc_extras
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
