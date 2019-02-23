@@ -30,10 +30,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/init.target.usb.rc:root/init.target.usb.rc
 
-# init.d
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/94kernel:system/etc/init.d/94kernel
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/m0
