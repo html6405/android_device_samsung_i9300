@@ -180,8 +180,10 @@ int smdk4x12_sensors_poll(struct sensors_poll_device_t *dev,
 
 	do {
 		poll_rc = poll(device->poll_fds, device->poll_fds_count, n > 0 ? 0 : -1);
-		if (poll_rc < 0)
-			return -1;
+		if (poll_rc < 0) {
+			ALOGE("%s: poll failed, rc=%d", __func__, poll_rc);
+			return 0;
+		}
 
 		for (i = 0; i < device->poll_fds_count; i++) {
 			if (!(device->poll_fds[i].revents & POLLIN))
