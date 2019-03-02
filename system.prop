@@ -12,8 +12,5 @@ ro.sf.lcd_density=320
 ro.lcd_min_brightness=20
 ro.ril.telephony.nstrings=4
 
-# EGL blobs crash on screen off
-ro.egl.destroy_after_detach=true
-
 # Camera API
 persist.camera.HAL3.enabled=1
