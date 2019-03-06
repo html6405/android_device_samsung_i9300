@@ -53,5 +53,3 @@ TARGET_POWERHAL_VARIANT := pegasusq
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
-
-WITH_SU := true
