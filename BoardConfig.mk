@@ -26,9 +26,6 @@ LIBART_IMG_BASE := 0x30000000
 # Graphics
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
-# EGL blobs crash on screen off
-TARGET_SKIP_EGL_CONTEXT_DETACH := true
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/i9300/bluetooth
 
