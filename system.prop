@@ -19,7 +19,6 @@ ro.egl.destroy_after_detach=true
 persist.camera.HAL3.enabled=1
 
 # RAM optimizations
-#persist.sys.ram_minfree=138240
 config.disable_atlas=true
 ro.sys.fw.trim_enable_memory=805306368
 ro.sys.fw.use_trim_settings=true
@@ -38,3 +37,21 @@ ro.hwui.layer_cache_size=6
 ro.hwui.path_cache_size=2
 ro.hwui.r_buffer_cache_size=1
 ro.hwui.texture_cache_size=8
+
+# Free up RAM by purging assets.
+persist.sys.purgeable_assets=1
+
+# Better RAM management
+ro.HOME_APP_ADJ=1
+
+# Low memory device
+ro.config.low_ram=true
+
+# Force high-end graphics in low ram mode
+persist.sys.force_highendgfx=true
+
+# Reduce background apps limit to 16 on low-tier devices
+ro.sys.fw.bg_apps_limit=16
+
+# Set max background services
+ro.config.max_starting_bg=4
