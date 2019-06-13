@@ -55,3 +55,6 @@ ro.sys.fw.bg_apps_limit=16
 
 # Set max background services
 ro.config.max_starting_bg=4
+
+# GPS
+ro.ril.def.agps.mode=1
