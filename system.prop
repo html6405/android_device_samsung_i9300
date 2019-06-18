@@ -58,3 +58,6 @@ ro.config.max_starting_bg=4
 
 # GPS
 ro.ril.def.agps.mode=1
+
+# Wifi
+wifi.supplicant_scan_interval=240
