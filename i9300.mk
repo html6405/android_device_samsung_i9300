@@ -43,6 +43,9 @@ PRODUCT_PACKAGES += \
     power.smdk4x12
 
 # Gps
+PRODUCT_PACKAGES += \
+    gps.smdk4x12
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/vendor/etc/gps.xml \
     $(LOCAL_PATH)/gps_daemon.sh:system/vendor/bin/gps_daemon.sh
