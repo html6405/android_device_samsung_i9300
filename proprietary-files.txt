@@ -2,4 +2,3 @@ bin/glgps
 lib/hw/gps.exynos4.vendor.so
 lib/libakm.so
 lib/libsec-ril.so
-lib/libstlport.so
