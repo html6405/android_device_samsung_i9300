@@ -23,6 +23,9 @@ MALLOC_SVELTE := true
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 LIBART_IMG_BASE := 0x30000000
 
+TARGET_LD_SHIM_LIBS := \
+    /vendor/bin/glgps|libgps_symbols.so
+
 # Graphics
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
