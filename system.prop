@@ -61,3 +61,8 @@ ro.ril.def.agps.mode=1
 
 # Wifi
 wifi.supplicant_scan_interval=240
+
+# Debugging
+persist.logd.size=16777216
+ro.logd.filter=disable
+persist.logd.filter=disable
