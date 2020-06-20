@@ -21,4 +21,4 @@
 /dev/block/platform/dw_mmc/by-name/RADIO		/modem				emmc		defaults		recoveryonly
 
 # zram
-/dev/block/zram0			none				swap		defaults		zramsize=419430400,zramstreams=2
+/dev/block/zram0			none				swap		defaults		zramsize=419430400
