@@ -229,15 +229,14 @@ static void shim_sv_status_cb(GpsSvStatus* sv_info) {
        gpsSvStatus_vendor_info->almanac_mask,
        gpsSvStatus_vendor_info->used_in_fix_mask);
     for (int index = 0; index < sv_info->num_svs; index++) {
-        ALOGD("%s:   svinfo[%d] - size=%d prn=%d snr=%f elevation=%f azimuth=%f vendor=%d",
+        ALOGD("%s:   svinfo[%d] - size=%d prn=%d snr=%f elevation=%f azimuth=%f",
             __func__,
             index,
             gpsSvStatus_vendor_info->sv_list[index].size,
             gpsSvStatus_vendor_info->sv_list[index].prn,
             gpsSvStatus_vendor_info->sv_list[index].snr,
             gpsSvStatus_vendor_info->sv_list[index].elevation,
-            gpsSvStatus_vendor_info->sv_list[index].azimuth,
-            gpsSvStatus_vendor_info->sv_list[index].vendor);
+            gpsSvStatus_vendor_info->sv_list[index].azimuth);
     }
 
     copy_sv_info_from_vendor(*gpsSvStatus_vendor_info, &gpsSvStatus_info);
@@ -319,18 +318,15 @@ static void shim_agpsril_set_ref_location(AGpsRefLocation *agps_reflocation, siz
 	vendor_ref.u.cellID.mcc = agps_reflocation->u.cellID.mcc;
 	vendor_ref.u.cellID.mnc = agps_reflocation->u.cellID.mnc;
 	vendor_ref.u.cellID.lac = agps_reflocation->u.cellID.lac;
-	vendor_ref.u.cellID.psc = 65535;
 	vendor_ref.u.cellID.cid = agps_reflocation->u.cellID.cid;
 	vendor_ref.u.mac = agps_reflocation->u.mac;
-	ALOGD("%s: Executing vendor_agpsril_set_ref_location= > type:%d mcc:%d mnc:%d lac:%d psc:%d cid:%d mac:%d",
+	ALOGD("%s: Executing vendor_agpsril_set_ref_vendor_reflocation= > type:%d mcc:%d mnc:%d lac:%d cid:%d",
 		__func__,
 		vendor_ref.u.cellID.type,
 		vendor_ref.u.cellID.mcc,
 		vendor_ref.u.cellID.mnc,
 		vendor_ref.u.cellID.lac,
-		vendor_ref.u.cellID.psc,
-		vendor_ref.u.cellID.cid,
-		vendor_ref.u.mac);
+		vendor_ref.u.cellID.cid);
 	vendor_agpsril_set_ref_location(&vendor_ref, sizeof(AGpsRefLocation_vendor));
 
 	agps_reflocation->type = vendor_ref.type;
