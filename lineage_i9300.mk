@@ -13,11 +13,11 @@ TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
 # Inherit some common stuff.
-$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := i9300
-PRODUCT_NAME := fluid_i9300
+PRODUCT_NAME := lineage_i9300
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-I9300
 PRODUCT_MANUFACTURER := samsung

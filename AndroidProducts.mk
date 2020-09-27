@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_i9300.mk
+    $(LOCAL_DIR)/lineage_i9300.mk
