@@ -1585,34 +1585,46 @@ static int in_set_parameters(struct audio_stream *stream, const char *kvpairs)
 
     pthread_mutex_lock(&adev->lock);
     pthread_mutex_lock(&in->lock);
-    if (ret >= 0) {
-        val = atoi(value);
-        /* no audio source uses val == 0 */
-        if ((in->source != val) && (val != 0)) {
-            in->source = val;
-            do_standby = true;
-        }
+    if (ret < 0)
+         goto error_params;
+
+    val = atoi(value);
+
+    /* no audio source uses val == 0 */
+    if ((in->source != val) && (val != 0)) {
+        in->source = val;
+        do_standby = true;
     }
 
     ret = str_parms_get_str(parms, AUDIO_PARAMETER_STREAM_ROUTING, value, sizeof(value));
-    if (ret >= 0) {
-        val = atoi(value) & ~AUDIO_DEVICE_BIT_IN;
-        if ((in->device != val) && (val != 0)) {
-            in->device = val;
-            do_standby = true;
-            /* make sure new device selection is incompatible with multi-mic pre processing
-             * configuration */
-            in_update_aux_channels(in, NULL);
-        }
+    if (ret < 0)
+        goto error_params;
+
+    val = atoi(value) & ~AUDIO_DEVICE_BIT_IN;
+    if ((in->device != val) && (val != 0)) {
+        in->device = val;
+        do_standby = true;
+        /* make sure new device selection is incompatible with multi-mic pre processing
+         * configuration */
+        in_update_aux_channels(in, NULL);
     }
 
     if (do_standby)
         do_input_standby(in);
+
     pthread_mutex_unlock(&in->lock);
     pthread_mutex_unlock(&adev->lock);
 
     str_parms_destroy(parms);
-    return ret;
+    return 0;
+
+error_params:
+    pthread_mutex_unlock(&in->lock);
+    pthread_mutex_unlock(&adev->lock);
+
+    str_parms_destroy(parms);
+
+    return -1;
 }
 
 static char * in_get_parameters(const struct audio_stream *stream,
