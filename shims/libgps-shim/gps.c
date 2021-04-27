@@ -215,7 +215,7 @@ static void shim_location_cb(GpsLocation* location) {
 
 static void shim_status_cb(GpsStatus* status) {
     log_gpsStatus_vendor(__func__, status);
-    orgGpsCallbacks->sv_status_cb(status);
+    orgGpsCallbacks->status_cb(status);
 }
 
 static void shim_sv_status_cb(GpsSvStatus* sv_info) {
