@@ -1,4 +1,4 @@
-import /init.target.usb.rc
+import /vendor/etc/init/hw/init.target.usb.rc
 
 on init
     export LD_SHIM_LIBS /system/lib/libsec-ril.so|libsamsung_symbols.so
