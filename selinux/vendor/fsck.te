@@ -1,0 +1,6 @@
+allow fsck efs_block_device:blk_file { read write getattr open ioctl };
+allow fsck preload_block_device:blk_file { ioctl open read write };
+allow fsck block_device:blk_file { ioctl open read write };
+allow fsck cache_file:dir getattr;
+allow fsck self:capability dac_override;
+allow fsck tmpfs:blk_file getattr;

@@ -1,0 +1,6 @@
+allow servicemanager rild:dir search;
+allow servicemanager rild:process getattr;
+allow servicemanager rild:file { open read };
+allow servicemanager radioreset:dir search;
+allow servicemanager radioreset:file { open read };
+allow servicemanager radioreset:process getattr;

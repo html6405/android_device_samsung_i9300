@@ -1,0 +1,2 @@
+allow network_stack sysfs_cpuinfo:dir search;
+allow network_stack sysfs_cpuinfo:file { getattr open read };

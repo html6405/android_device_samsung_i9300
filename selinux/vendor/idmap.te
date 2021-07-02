@@ -1,0 +1,2 @@
+allow idmap sysfs_cpuinfo:dir search;
+allow idmap sysfs_cpuinfo:file { getattr open read };

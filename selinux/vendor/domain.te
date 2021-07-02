@@ -1,0 +1,5 @@
+## Firmwares
+allow ueventd { firmware_mfc }:file r_file_perms;
+
+## 32bit personality requests
+dontaudit domain kernel:system module_request;

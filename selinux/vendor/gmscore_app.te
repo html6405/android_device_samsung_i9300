@@ -1,0 +1,1 @@
+allow gmscore_app sysfs_cpuinfo:file { getattr open read };

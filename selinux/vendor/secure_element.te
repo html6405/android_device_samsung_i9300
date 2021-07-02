@@ -1,0 +1,2 @@
+allow secure_element sysfs_cpuinfo:dir search;
+allow secure_element sysfs_cpuinfo:file { getattr open read };

@@ -1,0 +1,6 @@
+allow hal_graphics_composer_default vndbinder_device:chr_file { ioctl };
+allow hal_graphics_composer_default ion_device:chr_file write;
+allow hal_graphics_composer_default sysfs_display:dir search;
+allow hal_graphics_composer_default sysfs_display:file { open read };
+allow hal_graphics_composer_default video_device:chr_file { ioctl open read write };
+allow hal_graphics_composer_default vndbinder_device:chr_file { open read write };

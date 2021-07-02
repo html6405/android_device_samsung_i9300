@@ -1,0 +1,3 @@
+#allow shell kernel:system syslog_read;
+allow shell su:process signal;
+allow shell kmsg_device:chr_file { open read };

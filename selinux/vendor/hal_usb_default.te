@@ -1,0 +1,2 @@
+allow hal_usb_default sysfs_cpuinfo:dir search;
+allow hal_usb_default sysfs_cpuinfo:file { getattr open read };

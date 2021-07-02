@@ -1,0 +1,2 @@
+allow blkid_untrusted sysfs_cpuinfo:dir search;
+allow blkid_untrusted sysfs_cpuinfo:file { getattr open read };

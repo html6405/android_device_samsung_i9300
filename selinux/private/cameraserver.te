@@ -1,0 +1,2 @@
+allow cameraserver firmware_exynos:dir search;
+allow cameraserver firmware_exynos:file { open read };

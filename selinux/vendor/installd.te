@@ -1,0 +1,3 @@
+allow installd self:capability sys_nice;
+allow installd device:file { open write };
+allow installd system_data_file:dir search;

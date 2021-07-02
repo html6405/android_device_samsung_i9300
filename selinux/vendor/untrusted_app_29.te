@@ -1,0 +1,2 @@
+allow untrusted_app_29 sysfs_cpuinfo:dir search;
+allow untrusted_app_29 sysfs_cpuinfo:file { getattr open read };
