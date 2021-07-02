@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+    $(LOCAL_PATH)/keylayout/sec_touchkey.kl:vendor/usr/keylayout/sec_touchkey.kl
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
