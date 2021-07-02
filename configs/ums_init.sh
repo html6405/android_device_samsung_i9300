@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/vendor/bin/sh
 BB=/system/xbin/busybox
 LUN_NUM=2
 LUN_PATH="/sys/class/android_usb/f_mass_storage/lun%d/file"

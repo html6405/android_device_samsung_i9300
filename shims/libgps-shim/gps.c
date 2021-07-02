@@ -26,7 +26,7 @@
 #include <string.h>
 
 #include "gps.h"
-#define REAL_GPS_PATH "system/vendor/lib/hw/gps.exynos4.vendor.so"
+#define REAL_GPS_PATH "vendor/lib/hw/gps.exynos4.vendor.so"
 
 // Speed conversion km/h to gps speed-value
 #define SPEED_CONVERT 0.2728

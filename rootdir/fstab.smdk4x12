@@ -6,7 +6,7 @@
 /dev/block/platform/dw_mmc/by-name/SYSTEM		/system			ext4		ro,noatime							wait,first_stage_mount
 /dev/block/platform/dw_mmc/by-name/CACHE		/cache			f2fs		noatime,discard,inline_xattr,inline_data,nosuid,nodev		wait
 /dev/block/platform/dw_mmc/by-name/CACHE		/cache			ext4		noatime,nosuid,nodev,journal_async_commit,errors=panic		wait
-/dev/block/platform/dw_mmc/by-name/HIDDEN		/preload		ext4		noatime,nosuid,nodev,journal_async_commit		wait
+/dev/block/platform/dw_mmc/by-name/HIDDEN		/vendor		    ext4		noatime,nosuid,nodev,journal_async_commit		wait,first_stage_mount
 /dev/block/platform/dw_mmc/by-name/USERDATA		/data			f2fs		noatime,discard,inline_xattr,inline_data,nosuid,nodev		wait,check,encryptable=footer
 /dev/block/platform/dw_mmc/by-name/USERDATA		/data			ext4		noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic		wait,check,encryptable=footer
 /dev/block/platform/dw_mmc/by-name/OTA 			/misc 				emmc		defaults										defaults 

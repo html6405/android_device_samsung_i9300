@@ -49,7 +49,7 @@ PRODUCT_PACKAGES += \
     libgps_symbols
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/vendor/etc/gps.xml
+    $(LOCAL_PATH)/configs/gps.xml:vendor/etc/gps.xml
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -94,7 +94,7 @@ PRODUCT_COPY_FILES += \
 
 # UMS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ums_init.sh:system/bin/ums_init.sh
+    $(LOCAL_PATH)/configs/ums_init.sh:vendor/bin/ums_init.sh
 
 $(call inherit-product-if-exists, vendor/samsung/i9300/i9300-vendor.mk)
 
