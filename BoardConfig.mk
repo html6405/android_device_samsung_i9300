@@ -57,6 +57,11 @@ TARGET_POWERHAL_VARIANT := pegasusq
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 
+# Init
+ifneq ($(WITH_TWRP), true)
+TARGET_INIT_VENDOR_LIB := libinit_i9300
+endif
+
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/i9300/selinux/vendor
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/samsung/i9300/selinux/public
