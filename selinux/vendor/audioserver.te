@@ -1,0 +1,2 @@
+allow audioserver system_file:file execmod;
+allow audioserver rild:unix_stream_socket connectto;

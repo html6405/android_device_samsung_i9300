@@ -1,0 +1,2 @@
+allow hal_lineage_livedisplay_sysfs display_vendor_data_file:dir search;
+allow hal_lineage_livedisplay_sysfs display_vendor_data_file:file { getattr open read write };

@@ -1,0 +1,3 @@
+allow gallery_app sysfs_cpuinfo:dir read;
+allow gallery_app sysfs_cpuinfo:dir open;
+allow gallery_app rootfs:dir { add_name };

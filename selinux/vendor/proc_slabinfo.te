@@ -1,0 +1,1 @@
+allow proc_slabinfo sysfs:filesystem associate;

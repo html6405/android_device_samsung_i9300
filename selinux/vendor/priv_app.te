@@ -1,0 +1,3 @@
+allow priv_app ion_device:chr_file write;
+allow priv_app sysfs_cpuinfo:dir { open read };
+allow priv_app sysfs_cpuinfo:file { getattr open read };

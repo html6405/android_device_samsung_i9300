@@ -1,0 +1,2 @@
+allow mediaprovider_app sysfs_cpuinfo:dir search;
+allow mediaprovider_app sysfs_cpuinfo:file read;

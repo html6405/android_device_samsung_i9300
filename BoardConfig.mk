@@ -53,3 +53,8 @@ TARGET_POWERHAL_VARIANT := pegasusq
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
+
+# SELinux
+BOARD_SEPOLICY_DIRS += device/samsung/i9300/selinux/vendor
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/samsung/i9300/selinux/public
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/samsung/i9300/selinux/private

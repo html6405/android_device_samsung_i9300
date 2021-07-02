@@ -1,0 +1,2 @@
+allow vndservicemanager sysfs_cpuinfo:dir search;
+allow vndservicemanager sysfs_cpuinfo:file { getattr open read };

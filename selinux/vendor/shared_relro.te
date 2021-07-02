@@ -1,0 +1,2 @@
+allow shared_relro sysfs_cpuinfo:dir search;
+allow shared_relro sysfs_cpuinfo:file { getattr open read };

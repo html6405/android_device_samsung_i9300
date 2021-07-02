@@ -1,0 +1,9 @@
+#============= audioserver ==============
+# allow audioserver audioserver_tmpfs:file execute;
+
+#============= storaged ==============
+# allow storaged debugfs:file { getattr open read };
+
+#============= init ==============
+# allow init system_file:dir relabelfrom;
+# allow init system_file:lnk_file relabelfrom;

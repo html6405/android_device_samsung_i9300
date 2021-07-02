@@ -1,0 +1,5 @@
+allow hal_power_default sysfs_devices_system_cpu:file write;
+allow hal_power_default sysfs_power:dir search;
+allow hal_power_default sysfs_power:file { open write };
+allow hal_power_default sysfs_cpuinfo:dir search;
+allow hal_power_default sysfs_cpuinfo:file { open write };

@@ -1,0 +1,3 @@
+allow uncrypt misc_block_device:blk_file { open read write };
+allow uncrypt sysfs_cpuinfo:dir { search read };
+allow uncrypt sysfs_cpuinfo:file { read open getattr };

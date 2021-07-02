@@ -1,0 +1,2 @@
+allow vold_prepare_subdirs sysfs_cpuinfo:dir search;
+allow vold_prepare_subdirs sysfs_cpuinfo:file { getattr open read };

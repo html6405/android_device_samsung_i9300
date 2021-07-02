@@ -1,0 +1,4 @@
+allow hal_wifi_supplicant_default rfkill_device:chr_file { open read };
+allow hal_wifi_supplicant_default wifi_data_file:file { getattr open read write };
+allow hal_wifi_supplicant_default efs_device_file:dir search;
+allow hal_wifi_supplicant_default efs_file:dir search;

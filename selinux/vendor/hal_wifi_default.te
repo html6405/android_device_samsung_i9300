@@ -1,0 +1,6 @@
+allow hal_wifi_default system_data_file:file { getattr open read };
+allow hal_wifi_default wifi_firmware_path:file { open write };
+allow hal_wifi_default wifi_data_file:file { open read write };
+allow hal_wifi_default efs_device_file:dir search;
+allow hal_wifi_default efs_file:dir search;
+allow hal_wifi_default unlabeled:dir search;

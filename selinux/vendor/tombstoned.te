@@ -1,0 +1,3 @@
+allow tombstoned sysfs_cpuinfo:dir search;
+allow tombstoned sysfs_cpuinfo:file { open read };
+allow tombstoned sysfs_cpuinfo:file getattr;

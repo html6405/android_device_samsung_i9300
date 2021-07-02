@@ -1,0 +1,5 @@
+allow bluetooth efs_device_file:dir search;
+allow bluetooth storage_stub_file:dir getattr;
+#allow bluetooth method_trace_data_file:file { execute read unlink };
+allow bluetooth method_trace_data_file:file { read unlink };
+allow bluetooth wifi_data_file:file { open read };

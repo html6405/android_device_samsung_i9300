@@ -1,0 +1,6 @@
+allow platform_app battery_service:service_manager find;
+allow platform_app method_trace_data_file:file { execute read unlink };
+allow platform_app default_android_service:service_manager find;
+allow platform_app ion_device:chr_file write;
+allow platform_app sysfs_cpuinfo:dir { open read search };
+allow platform_app sysfs_cpuinfo:file { getattr open read };

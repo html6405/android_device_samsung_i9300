@@ -1,0 +1,9 @@
+allow hal_gnss_default gps_data_file:dir search;
+allow hal_gnss_default gps_data_file:fifo_file { open read setattr write };
+allow hal_gnss_default vendor_file:file execmod;
+allow hal_gnss_default vndbinder_device:chr_file { ioctl open read write };
+
+allow hal_gnss_default self:socket create;
+allow hal_gnss_default socket_device:dir { add_name write };
+allow hal_gnss_default socket_device:sock_file { create setattr };
+allow hal_gnss_default socket_device:sock_file write;
