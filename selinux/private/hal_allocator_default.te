@@ -1,0 +1,4 @@
+allow hal_allocator_default sysfs:file { getattr open read };
+allow hal_allocator_default sysfs_cpuinfo:dir search;
+allow hal_allocator_default sysfs_cpuinfo:file { getattr open read };
+

@@ -1,0 +1,2 @@
+allow audioserver vendor_file:file execmod;
+

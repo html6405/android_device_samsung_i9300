@@ -1,0 +1,2 @@
+allow hal_configstore_default sysfs_cpuinfo:dir search;
+allow hal_configstore_default sysfs_cpuinfo:file { getattr open read };

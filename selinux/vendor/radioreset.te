@@ -1,0 +1,21 @@
+type radioreset, domain;
+type radioreset_exec, exec_type, file_type;
+
+permissive radioreset;
+
+allow radioreset ctl_rildaemon_prop:property_service set;
+allow radioreset init:unix_stream_socket connectto;
+allow radioreset property_socket:sock_file write;
+allow radioreset radio_prop:property_service set;
+allow radioreset shell_exec:file { entrypoint execute getattr open read };
+allow radioreset sysfs_cpuinfo:dir search;
+allow radioreset sysfs_cpuinfo:file { getattr open read };
+allow radioreset toolbox_exec:file { execute execute_no_trans getattr open read };
+allow radioreset radioreset_exec:file execute_no_trans;
+init_daemon_domain(radioreset);
+allow radioreset self:capability sys_nice;
+allow radioreset settings_service:service_manager find;
+allow radioreset system_file:file execute_no_trans;
+allow radioreset servicemanager:binder { call };
+allow radioreset system_server:binder call;
+allow system_server radioreset:fifo_file write;

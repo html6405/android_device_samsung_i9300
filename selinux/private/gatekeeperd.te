@@ -1,0 +1,1 @@
+allow gatekeeperd init:binder call;

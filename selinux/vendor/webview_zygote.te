@@ -1,0 +1,3 @@
+allow webview_zygote sysfs_cpuinfo:dir search;
+allow webview_zygote sysfs_cpuinfo:file { getattr open read };
+allow webview_zygote zygote:unix_dgram_socket { write };

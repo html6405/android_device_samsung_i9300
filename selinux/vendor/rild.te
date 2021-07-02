@@ -1,0 +1,70 @@
+allow rild radio_data:dir { search write remove_name getattr add_name setattr };
+allow rild radio_data:file { write getattr setattr read create unlink open };
+allow rild storage_file:dir search;
+allow rild efs_block_device:blk_file read;
+allow rild efs_device_file:dir search;
+allow rild toolbox_exec:file { execute execute_no_trans getattr open read };
+allow rild net_radio_prop:property_service set;
+allow rild radio_data_file:dir { open read search write remove_name getattr add_name setattr };
+allow rild radio_data_file:file { create unlink getattr ioctl lock open read write };
+allow rild sysfs:file write;
+allow rild shell_exec:file { getattr execute_no_trans execute open read };
+
+allow rild activity_service:service_manager find;
+allow rild cpuinfo_service:service_manager find;
+allow rild dumpstate_options_prop:file { open read };
+allow rild init:dir search;
+allow rild input_service:service_manager find;
+allow rild logcat_exec:file { execute execute_no_trans getattr open read };
+allow rild notification_service:service_manager find;
+allow rild self:netlink_xfrm_socket create;
+allow rild servicemanager:service_manager list;
+allow rild surfaceflinger_service:service_manager find;
+allow rild vibrator_service:service_manager find;
+allow rild window_service:service_manager find;
+
+allow rild dumpstate_exec:file { execute execute_no_trans getattr open read };
+allow rild dumpstate_options_prop:file getattr;
+allow rild dumpstate_prop:property_service set;
+allow rild kernel:dir search;
+allow rild logd:dir search;
+allow rild servicemanager:dir search;
+allow rild system_data_file:dir read;
+allow rild ueventd:dir search;
+allow rild vendor_init:dir search;
+
+allow rild anr_data_file:dir { open read search };
+allow rild dumpstate_prop:property_service set;
+allow rild kernel:dir search;
+allow rild system_data_file:dir { open read write };
+allow rild vendor_init:dir search;
+
+allow rild hwservicemanager:dir search;
+allow rild logd:unix_stream_socket connectto;
+allow rild logdr_socket:sock_file write;
+allow rild system_data_file:dir add_name;
+allow rild system_data_file:file { getattr open };
+allow rild system_file:file execute_no_trans;
+allow rild vndservicemanager:dir search;
+allow rild vold:dir search;
+
+allow rild healthd:dir search;
+allow rild netd:dir search;
+allow rild proc_cmdline:file read;
+allow rild zygote:dir search;
+
+# Only allowed because of TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS
+allow rild system_file:file execmod;
+allow rild vendor_file:file execmod;
+
+allow rild proc_cmdline:file { getattr open };
+allow rild servicemanager:binder call;
+allow rild system_server:binder { call transfer };
+
+allow rild hal_cas_default:dir search;
+allow rild hal_configstore_default:dir search;
+allow rild hal_drm_default:dir search;
+allow rild proc_version:file { open read };
+allow rild surfaceflinger:binder call;
+allow rild unlabeled:file rw_file_perms;
+allow rild unlabeled:dir rw_file_perms;

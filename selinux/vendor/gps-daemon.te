@@ -1,0 +1,26 @@
+type glgps, domain;
+type glgps_exec, exec_type, file_type;
+
+allow glgps shell_exec:file { entrypoint getattr read };
+allow glgps sysfs_cpuinfo:dir search;
+allow glgps sysfs_cpuinfo:file { getattr open read };
+allow glgps system_data_file:dir { add_name remove_name write };
+allow glgps system_data_file:dir write;
+allow glgps system_data_file:fifo_file { create getattr open read setattr unlink };
+allow glgps system_data_file:file { getattr lock open read };
+allow glgps gps_data_file:file { lock open write };
+allow glgps gps_data_file:fifo_file { getattr open read setattr unlink write };
+allow glgps system_file:file { execmod execute_no_trans };
+
+allow glgps dnsproxyd_socket:sock_file write;
+allow glgps fwmarkd_socket:sock_file write;
+allow glgps gps_data_file:file { getattr read };
+allow glgps gps_device:chr_file { getattr ioctl open read write };
+allow glgps netd:unix_stream_socket connectto;
+allow glgps self:tcp_socket { create read write };
+allow glgps sysfs:file { open read write };
+allow glgps port:tcp_socket name_connect;
+allow glgps self:tcp_socket { connect getopt };
+
+permissive glgps;
+init_daemon_domain(glgps);

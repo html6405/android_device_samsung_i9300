@@ -1,0 +1,147 @@
+
+# GFX
+/dev/mali                                                        u:object_r:gpu_device:s0
+/dev/ump                                                         u:object_r:gpu_device:s0
+/dev/fimg2d                                                      u:object_r:gpu_device:s0
+/sys/class/misc/gpu_clock_control(/.*)?                          u:object_r:gpu_device:s0
+
+# RIL
+/dev/link_pm                                                     u:object_r:radio_device:s0
+/dev/umts_boot0                                                  u:object_r:radio_device:s0
+/dev/umts_boot1                                                  u:object_r:radio_device:s0
+/dev/umts_ipc0                                                   u:object_r:radio_device:s0
+/dev/umts_ramdump0                                               u:object_r:radio_device:s0
+/dev/umts_rfs0                                                   u:object_r:radio_device:s0
+/data/misc/radio(/.*)?                                           u:object_r:radio_data:s0
+/sys/devices/platform/s5p-ehci/ehci_power                        u:object_r:sysfs_radio:s0
+/dev/__cbd_msg_                                                  u:object_r:cbd_device:s0
+
+# Block labeling
+/dev/block/mmcblk0p3                                             u:object_r:efs_block_device:s0
+/dev/block/mmcblk0p7                                             u:object_r:efs_block_device:s0
+/dev/block/mmcblk0p8                                             u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p9                                             u:object_r:system_block_device:s0
+/dev/block/mmcblk0p10                                            u:object_r:preload_block_device:s0
+/dev/block/mmcblk0p11                                            u:object_r:misc_block_device:s0
+/dev/block/mmcblk0p12                                            u:object_r:userdata_block_device:s0
+/dev/block/zram0                                                 u:object_r:swap_block_device:s0
+/efs                                                             u:object_r:efs_device_file:s0
+/misc                                                            u:object_r:misc_device_file:s0
+/tombstones                                                      u:object_r:tombstones_device_file:s0
+
+# Camera
+/dev/s3c-mfc                                                     u:object_r:mfc_device:s0
+/dev/s5p-jpeg                                                    u:object_r:video_device:s0
+
+# Bluetooth
+/dev/ttySAC0                                                     u:object_r:hci_attach_dev:s0
+/efs/bluetooth/bt_addr                                           u:object_r:bluetooth_data_file:s0
+/sys/devices/platform/bcm433[0-9]_bluetooth/rfkill/rfkill0/state     u:object_r:sysfs_bluetooth_writable:s0
+
+# GPS
+/dev/ttySAC1                                                     u:object_r:gps_device:s0
+
+# Sensors
+/dev/akm8975                                                     u:object_r:sensors_device:s0
+
+# Keys
+/sys/devices/virtual/sec/sec_key/wakeup_keys                     u:object_r:sysfs_sensors:s0
+
+# WiFi
+/dev/rfkill                                                      u:object_r:rfkill_device:s0
+/efs/wifi/.mac.info                                              u:object_r:wifi_data_file:s0
+/data/.cid.info                                                  u:object_r:wifi_data_file:s0
+/data/.wifiver.info                                              u:object_r:wifi_data_file:s0
+/data/.psm.info                                                  u:object_r:wifi_data_file:s0
+/sys/module/dhd/parameters/firmware_path                         u:object_r:wifi_firmware_path:s0
+/efs/wifi(/.*)?                                                  u:object_r:wifi_efs_file:s0
+
+# Firmwares
+/vendor/firmware/mfc_fw.bin                               u:object_r:firmware_mfc:s0
+
+# Display
+/sys/devices/platform/s5p-dsim.0(/.*)?			u:object_r:display_vendor_data_file:s0
+/sys/devices/platform/samsung-pd.2/mdnie/mdnie(/.*)?		u:object_r:display_vendor_data_file:s0
+/sys/devices/platform/samsung-pd.2/s3cfb.0(/.*)?		u:object_r:sysfs_display:s0
+
+# Executables
+/vendor/bin/cbd                                                  u:object_r:cpboot-daemon_exec:s0
+/vendor/bin/macloader                                     u:object_r:macloader_exec:s0
+/system/bin/tinyplay                                             u:object_r:tinyplay_exec:s0
+/vendor/bin/glgps                                         u:object_r:glgps_exec:s0
+/vendor/bin/restart_rild.sh                               u:object_r:radioreset_exec:s0
+/vendor/bin/hw/wpa_supplicant                                    u:object_r:hal_wifi_default_exec:s0
+/vendor/bin/main_route_table.sh                               u:object_r:main_route_table_exec:s0
+
+/dev/exynos-mem							 u:object_r:video_device:s0
+/data/ISP_CV							 u:object_r:camera_data_file:s0
+
+# Firmware
+/vendor/firmware(/.*)?					 u:object_r:firmware_exynos:s0
+/vendor/firwmare/mfc_fw.bin				 u:object_r:firmware_mfc:s0
+/data/cfw(/.*)?							 u:object_r:firmware_exynos:s0
+
+# Vendor
+/(vendor|system/vendor)/lib/hw/gralloc.exynos4.so							                u:object_r:system_file:s0
+/(vendor|system/vendor)/lib/hw/hwcomposer.exynos4.so							            u:object_r:system_file:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.exynos4412			u:object_r:hal_power_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@[0-9]\.[0-9]-service\.exynos4		u:object_r:hal_gnss_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@[0-9]\.[0-9]-service\.samsung 		u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.samsung                 u:object_r:hal_lineage_touch_default_exec:s0
+/vendor/bin/hw/android.hardware.authsecret@1.0-service                                      u:object_r:hal_authsecret_default_exec:s0
+/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.software                             u:object_r:hal_gatekeeper_default_exec:s0
+/vendor/bin/hw/android.hardware.ir@1.0-service.samsung                                      u:object_r:hal_ir_default_exec:s0
+
+# LiveDisplay HAL
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.samsung-exynos    u:object_r:hal_lineage_livedisplay_sysfs_exec:s0
+
+# healthd
+/sys/devices/platform/i2c-gpio.17/i2c-17/17-0066/max77693-charger(/.*)?	u:object_r:sysfs_batteryinfo:s0
+/sys/devices/platform/samsung-battery(/.*)?                          u:object_r:sysfs_batteryinfo:s0
+/sys/devices/platform/i2c-gpio.14/i2c-14/14-0036/power_supply(/.*)?	u:object_r:sysfs_batteryinfo:s0
+
+# CPU
+/sys/power/cpufreq_min_limit						u:object_r:sysfs_devices_system_cpu:s0
+/sys/power/cpufreq_max_limit						u:object_r:sysfs_devices_system_cpu:s0
+/sys/power/cpufreq_table						    u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/platform/s5p-tmu/temperature			u:object_r:sysfs_devices_system_cpu:s0
+
+# lmkd
+/sys/module/lowmemorykiller(/.*)?                                u:object_r:sysfs_lmkd:s0
+
+# zram
+/sys/devices/virtual/block/zram0(/.*)?                           u:object_r:sysfs_zram:s0
+
+# GPS
+/data/gps/\.gpsd.lock                                            u:object_r:gps_data_file:s0
+/data/gps/glgpsctrl                                              u:object_r:gps_data_file:s0
+/data/gps/\.gps\.interface\.pipe\.to_gpsd                        u:object_r:gps_data_file:s0
+/data/gps/\.gps\.interface\.pipe\.to_jni                         u:object_r:gps_data_file:s0
+/data/gps/gldata\.sto                                            u:object_r:gps_data_file:s0
+
+# Wakeup sources
+/sys/kernel/debug/wakeup_sources				u:object_r:debugfs_wakeup_sources:s0
+
+# Suspend system
+/sys/power(/.*)? 						u:object_r:sysfs_power:s0
+/sys/power/wake_lock						u:object_r:sysfs_wake_lock:s0
+/sys/power/wake_unlock						u:object_r:sysfs_wake_lock:s0
+/sys/power/wakeup_count					u:object_r:sysfs_wake_lock:s0
+/sys/power/state						u:object_r:sysfs_wake_lock:s0
+
+# Slab
+/sys/kernel/slab(/.*)?						u:object_r:proc_slabinfo:s0
+
+# Boeffla
+/sys/devices/virtual/misc/boeffla_sound(/.*)?			u:object_r:sysfs_boeffla:s0
+/sys/class/misc/boeffla_sound(/.*)?				u:object_r:sysfs_boeffla:s0
+
+# cgroup
+/dev/cpuset(/.*)?						u:object_r:cgroup:s0
+/dev/stune(/.*)?						u:object_r:cgroup:s0
+
+# USB
+/sys/devices/virtual/android_usb/android0(/.*)?                  u:object_r:sysfs_usb:s0
+
+/sys/devices/virtual/sec/sec_touchkey(/.*)?                   u:object_r:sysfs_sec_touchkey:s0
+/sys/devices/virtual/sec/led(/.*)?                            u:object_r:sysfs_sec_led:s0

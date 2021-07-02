@@ -1,0 +1,4 @@
+allow mediacodec system_file:dir { open read };
+allow mediacodec mfc_device:chr_file { read write open ioctl};
+allow mediacodec sysfs_cpuinfo:dir search;
+allow mediacodec sysfs_cpuinfo:file { getattr open read };

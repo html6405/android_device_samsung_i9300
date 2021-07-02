@@ -1,0 +1,3 @@
+type sysfs_display, fs_type, sysfs_type;
+type sysfs_cpuinfo, fs_type, sysfs_type;
+type sysfs_mmc, fs_type, sysfs_type;

@@ -1,0 +1,6 @@
+allow untrusted_app ion_device:chr_file write;
+allow untrusted_app sysfs_boeffla:file { getattr open read write };
+allow untrusted_app sysfs_boeffla:dir search;
+allow untrusted_app proc_stat:file r_file_perms;
+allow untrusted_app sysfs_cpuinfo:dir search;
+allow untrusted_app sysfs_cpuinfo:file read;

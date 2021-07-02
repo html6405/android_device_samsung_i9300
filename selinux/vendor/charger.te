@@ -1,0 +1,1 @@
+allow charger sysfs:file rw_file_perms;

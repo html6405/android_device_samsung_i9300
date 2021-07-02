@@ -1,0 +1,2 @@
+allow bootanim userspace_reboot_exported_prop:file { getattr open read };
+allow bootanim unlabeled:fd use;

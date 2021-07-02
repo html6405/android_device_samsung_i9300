@@ -1,0 +1,95 @@
+#============= cpboot-daemon ==============
+#allow cpboot-daemon device:chr_file { open read write };
+#allow cpboot-daemon self:capability { mknod dac_override };
+
+#============= init ==============
+#allow init sysfs:file { read write open };
+#allow init system_file:file execute_no_trans;
+#allow init vendor_file:file execute_no_trans;
+#allow init settings_service:service_manager find;
+#allow init system_file:dir relabelfrom;
+#allow init system_file:lnk_file relabelfrom;
+#allow init bootanim_exec:lnk_file { relabelfrom };
+#allow init adb_data_file:file { execute execute_no_trans };
+
+#============= priv_app ==============
+#allow priv_app method_trace_data_file:file { execute read unlink };
+#allow priv_app zygote:file { read open };
+#allow priv_app bootloader_boot_reason_prop:file { getattr open };
+#allow priv_app bluetooth_prop:file { getattr open };
+
+#============= radio ==============
+#allow radio method_trace_data_file:file execute;
+
+#============= shared_relro ==============
+#allow shared_relro method_trace_data_file:file execute;
+
+#============= shell ==============
+#allow shell kernel:system syslog_read;
+
+#============= system_app ==============
+#allow system_app method_trace_data_file:file execute;
+#allow system_app perfprofd:binder call;
+#allow system_app init:binder call;
+
+#============= system_server ==============
+#allow system_server dalvikcache_data_file:file execute;
+#allow system_server device:chr_file { open read write };
+#allow system_server sdcardfs:file read;
+#allow system_server init:binder call;
+
+#============= untrusted_app ==============
+#allow untrusted_app method_trace_data_file:file { execute read unlink };
+#allow untrusted_app init:file { open read };
+#allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
+#allow untrusted_app proc:file { open read };
+#allow untrusted_app proc_stat:file { open };
+#allow untrusted_app dalvikcache_data_file:file execmod;
+#allow untrusted_app proc_vmstat:file open;
+#allow untrusted_app hal_memtrack_hwservice:hwservice_manager find;
+#allow untrusted_app proc:file read;
+#allow untrusted_app kernel:file { read open };
+
+#============= untrusted_app_25 ==============
+#allow untrusted_app_25 method_trace_data_file:file { execute read unlink };
+
+#============= untrusted_app_27 ==============
+#allow untrusted_app_27 method_trace_data_file:file { execute read unlink };
+
+#============= isolated_app ==============
+#allow isolated_app sysfs_cpuinfo:dir { open read };
+#allow isolated_app sysfs_cpuinfo:file { open read };
+
+#============= recovery ==============
+#allow recovery vold_data_file:dir { getattr open read search };
+#allow recovery keystore_data_file:file getattr;
+#allow recovery keystore_data_file:dir { getattr open read search };
+#allow recovery shell_data_file:dir { open search };
+#allow recovery default_prop:property_service set;
+
+#============= cpboot-daemon ==============
+#allow cpboot-daemon self:capability { dac_override };
+
+#============= servicemanager==============
+#allow servicemanager init:binder transfer;
+
+#============= hwservicemanager==============
+#allow hwservicemanager init:binder { call };
+
+#============= gps-daemon==============
+#allow glgps vendor_file:file { entrypoint };
+#allow glgps system_data_file:file { write };
+
+#============= macloader==============
+#allow macloader vendor_file:file entrypoint;
+
+#============= hal_wifi_default==============
+#allow hal_wifi_default hal_wifi_supplicant_hwservice:hwservice_manager add;
+#allow hal_wifi_default system_data_file:file { write };
+#allow hal_wifi_default self:packet_socket { ioctl };
+
+#============= rild==============
+#allow rild system_data_file:file { create append setattr write };
+
+#============= fsck==============
+#allow fsck fsck:capability { dac_override dac_read_search };

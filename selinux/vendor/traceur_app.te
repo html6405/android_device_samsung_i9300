@@ -1,0 +1,1 @@
+#allow traceur_app method_trace_data_file:file { execute read };

@@ -1,0 +1,2 @@
+allow mediaprovider method_trace_data_file:file { execute read unlink };
+allow mediaprovider cache_recovery_file:dir { open read };
