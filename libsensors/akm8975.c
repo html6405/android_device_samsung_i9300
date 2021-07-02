@@ -34,6 +34,7 @@
 
 #include <AKFS_Compass.h>
 #include <AKFS_FileIO.h>
+#include <pthread.h>
 
 #define AKFS_CONFIG_PATH	"/data/misc/akfs.txt"
 #define AKFS_PAT		PAT3

@@ -29,6 +29,7 @@
 
 #include "smdk4x12_sensors.h"
 #include "lsm330dlc_accel.h"
+#include <pthread.h>
 
 struct lsm330dlc_acceleration_data {
 	int64_t delay;
