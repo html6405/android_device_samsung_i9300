@@ -95,6 +95,11 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:vendor/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:vendor/etc/permissions/android.hardware.telephony.gsm.xml
 
+# prebuild apps
+
+PRODUCT_PACKAGES += \
+	Via
+
 # UMS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ums_init.sh:vendor/bin/ums_init.sh
