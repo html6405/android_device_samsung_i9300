@@ -86,7 +86,7 @@ void vendor_load_properties()
     if (bootloader.find("I9300") != std::string::npos) {
         property_override_dual("ro.product.model", "ro.vendor.product.model", "GT-I9300");
         property_override_dual("ro.product.device", "ro.vendor.product.device", "m0");
-        property_override_dual("ro.product.device", "ro.vendor.product.name", "m0xx");
+        property_override_dual("ro.product.device", "ro.vendor.product.name", "i9300");
         property_override_dual("ro.build.description", "ro.vendor.build.description", "m0xx-user 4.3 JSS15J I9300XXUGMJ9 release-keys");
         property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/m0xx/m0:4.3/JSS15J/I9300XXUGMJ9:user/release-keys");
         property_override("ro.build.product", "i9300");
@@ -94,7 +94,7 @@ void vendor_load_properties()
     else {
         property_override_dual("ro.product.model", "ro.vendor.product.model", "GT-I9300");
         property_override_dual("ro.product.device", "ro.vendor.product.device", "m0");
-        property_override_dual("ro.product.device", "ro.vendor.product.name", "m0xx");
+        property_override_dual("ro.product.device", "ro.vendor.product.name", "i9300");
         property_override_dual("ro.build.description", "ro.vendor.build.description", "m0xx-user 4.3 JSS15J I9300XXUGMJ9 release-keys");
         property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/m0xx/m0:4.3/JSS15J/I9300XXUGMJ9:user/release-keys");
         property_override("ro.build.product", "i9300");
