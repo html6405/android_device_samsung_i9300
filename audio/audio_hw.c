@@ -2962,8 +2962,8 @@ static int adev_config_parse(struct m0_audio_device *adev)
     int len;
 
     property_get("ro.product.device", property, "tiny_hw");
-    snprintf(file, sizeof(file), "/vendor/etc/sound/%s", property);
-
+    //snprintf(file, sizeof(file), "/vendor/etc/sound/%s", property);
+    snprintf(file, sizeof(file), "/vendor/etc/sound/i9300");
     ALOGV("Reading configuration from %s\n", file);
     f = fopen(file, "r");
     if (!f) {
