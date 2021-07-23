@@ -35,11 +35,11 @@ static const GpsFilterLocation defaultFilterLocation = { 10, true, 1.0f, 5, 6000
 
 static const GpsFilterLocation gpsFilterLocations[] = {
     {   5, false,  0,    0,     0 },
-    {  10, true, 1.5f,   5, 60000 },
-    {  20, true, 4.0f,   6, 60000 },
-    {  30, true, 8.0f,   8, 60000 },
-    {  40, true, 12.0f,  8, 60000 },
-    {  50, true, 16.0f,  8, 60000 },
+    {  10, false, 1.5f,   5, 60000 },
+    {  20, false, 4.0f,   6, 60000 },
+    {  30, false, 8.0f,   8, 60000 },
+    {  40, false, 12.0f,  8, 60000 },
+    {  50, false, 16.0f,  8, 60000 },
 };
 
 static gpsFilterLocationsLength = sizeof(gpsFilterLocations) / sizeof(GpsFilterLocation);
