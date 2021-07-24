@@ -81,8 +81,13 @@ PRODUCT_PACKAGES += \
 	fsck.f2fs \
 	mkfs.f2fs
 
-#PRODUCT_PACKAGES += \
-#    com.android.nfc_extras
+# NFC
+PRODUCT_PACKAGES += \
+	nfc.exynos4 \
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    Tag
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -93,7 +98,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:vendor/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:vendor/etc/permissions/android.hardware.telephony.gsm.xml
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:vendor/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:vendor/etc/permissions/android.hardware.nfc.xml
 
 # prebuild apps
 
