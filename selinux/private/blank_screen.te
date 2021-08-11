@@ -1,0 +1,3 @@
+allow blank_screen glgps_exec:file read;
+allow blank_screen init:binder call;
+allow blank_screen glgps_exec:file getattr;

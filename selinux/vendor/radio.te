@@ -1,1 +1,4 @@
 allow radio method_trace_data_file:file { read unlink };
+allow radio init:binder { call transfer };
+allow radio sysfs_cpuinfo:dir search;
+allow radio sysfs_cpuinfo:file { getattr open read };

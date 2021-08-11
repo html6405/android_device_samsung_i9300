@@ -1,0 +1,2 @@
+allow mediaswcodec glgps_exec:file read;
+allow mediaswcodec glgps_exec:file getattr;

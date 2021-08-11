@@ -3,3 +3,5 @@ allow toolbox ctl_rildaemon_prop:property_service set;
 allow toolbox radio_prop:property_service set;
 allow toolbox property_socket:sock_file write;
 allow toolbox init:unix_stream_socket { connectto read write };
+allow toolbox glgps_exec:file read;
+allow toolbox glgps_exec:file getattr;

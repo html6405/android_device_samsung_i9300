@@ -4,3 +4,6 @@ allow servicemanager rild:file { open read };
 allow servicemanager radioreset:dir search;
 allow servicemanager radioreset:file { open read };
 allow servicemanager radioreset:process getattr;
+allow servicemanager glgps_exec:file read;
+allow servicemanager glgps_exec:file getattr;
+allow servicemanager init:binder transfer;

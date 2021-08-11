@@ -1,0 +1,2 @@
+allow gsid glgps_exec:file read;
+allow gsid glgps_exec:file getattr;

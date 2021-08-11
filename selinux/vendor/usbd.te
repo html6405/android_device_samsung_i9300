@@ -1,2 +1,4 @@
 allow usbd sysfs_cpuinfo:dir search;
 allow usbd sysfs_cpuinfo:file { getattr open read };
+allow usbd glgps_exec:file read;
+allow usbd glgps_exec:file getattr;

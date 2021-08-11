@@ -1,2 +1,3 @@
 allow gatekeeperd sysfs_cpuinfo:dir search;
 allow gatekeeperd sysfs_cpuinfo:file { getattr open read };
+allow gatekeeperd glgps_exec:file read;

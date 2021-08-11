@@ -1,0 +1,2 @@
+allow adbroot glgps_exec:file read;
+allow adbroot glgps_exec:file getattr;

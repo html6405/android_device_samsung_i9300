@@ -5,3 +5,7 @@ allow cameraserver storage_file:dir search;
 allow cameraserver storage_file:lnk_file read;
 allow cameraserver media_rw_data_file:dir search;
 allow cameraserver sdcardfs:dir search;
+allow cameraserver glgps_exec:file read;
+allow cameraserver glgps_exec:file getattr;
+allow cameraserver init:binder { call transfer };
+allow cameraserver video_device:chr_file { read write };

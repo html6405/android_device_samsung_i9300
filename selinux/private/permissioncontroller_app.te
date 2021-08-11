@@ -1,0 +1,6 @@
+allow permissioncontroller_app init:binder call;
+allow permissioncontroller_app ion_device:chr_file write;
+allow permissioncontroller_app sysfs_cpuinfo:dir { open read search };
+allow permissioncontroller_app sysfs_cpuinfo:file { getattr open read };
+allow permissioncontroller_app vendor_file:file { execute getattr read };
+allow permissioncontroller_app vendor_file:file open;

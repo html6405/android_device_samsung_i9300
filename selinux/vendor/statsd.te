@@ -1,0 +1,2 @@
+allow statsd glgps_exec:file read;
+allow statsd glgps_exec:file getattr;

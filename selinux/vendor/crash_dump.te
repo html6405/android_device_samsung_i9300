@@ -1,2 +1,4 @@
 allow crash_dump sysfs_cpuinfo:dir search;
 allow crash_dump sysfs_cpuinfo:file { read getattr open };
+allow crash_dump keystore:process ptrace;
+allow crash_dump init:process ptrace;
