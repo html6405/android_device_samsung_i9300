@@ -1,0 +1,1 @@
+allow rss_hwm_reset glgps_exec:file { getattr read };

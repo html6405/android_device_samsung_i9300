@@ -1,3 +1,8 @@
 allow gallery_app sysfs_cpuinfo:dir read;
 allow gallery_app sysfs_cpuinfo:dir open;
 allow gallery_app rootfs:dir { add_name };
+allow gallery_app init:binder call;
+allow gallery_app ion_device:chr_file write;
+allow gallery_app sysfs_cpuinfo:dir search;
+allow gallery_app sysfs_cpuinfo:file read;
+allow gallery_app sysfs_cpuinfo:file open;

@@ -1,0 +1,2 @@
+allow bpfloader glgps_exec:file read;
+allow bpfloader glgps_exec:file getattr;

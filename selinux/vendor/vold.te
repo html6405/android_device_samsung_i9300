@@ -5,3 +5,5 @@ allow vold efs_file:file { create unlink };
 allow vold sysfs_zram:file write;
 allow vold efs_device_file:dir { ioctl open read };
 allow vold sysfs_mmc:file write;
+allow vold glgps_exec:file read;
+allow vold glgps_exec:file getattr;

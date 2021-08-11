@@ -1,0 +1,2 @@
+allow apexd glgps_exec:file read;
+allow apexd glgps_exec:file getattr;

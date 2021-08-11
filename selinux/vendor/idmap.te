@@ -1,2 +1,4 @@
 allow idmap sysfs_cpuinfo:dir search;
 allow idmap sysfs_cpuinfo:file { getattr open read };
+allow idmap glgps_exec:file read;
+allow idmap glgps_exec:file getattr;

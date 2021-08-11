@@ -1,1 +1,3 @@
 allow sdcardd self:capability { chown fowner fsetid };
+allow sdcardd glgps_exec:file read;
+allow sdcardd glgps_exec:file getattr;

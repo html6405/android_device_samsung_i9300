@@ -1,0 +1,2 @@
+allow derive_sdk glgps_exec:file read;
+allow derive_sdk glgps_exec:file getattr;
