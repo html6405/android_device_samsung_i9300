@@ -4,3 +4,5 @@ allow fsck block_device:blk_file { ioctl open read write };
 allow fsck cache_file:dir getattr;
 allow fsck self:capability dac_override;
 allow fsck tmpfs:blk_file getattr;
+allow fsck glgps_exec:file read;
+allow fsck glgps_exec:file getattr;

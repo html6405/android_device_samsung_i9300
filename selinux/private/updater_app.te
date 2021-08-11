@@ -1,0 +1,6 @@
+allow updater_app sysfs_cpuinfo:dir search;
+allow updater_app sysfs_cpuinfo:file { getattr open read };
+allow updater_app vendor_file:file read;
+allow updater_app init:binder call;
+allow updater_app ion_device:chr_file write;
+allow updater_app vendor_file:file { execute getattr open };

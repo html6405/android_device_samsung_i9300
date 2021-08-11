@@ -1,1 +1,3 @@
 allow adbd self:capability dac_override;
+allow adbd glgps_exec:file read;
+allow adbd glgps_exec:file getattr;

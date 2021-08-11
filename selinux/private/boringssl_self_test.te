@@ -1,0 +1,2 @@
+allow boringssl_self_test glgps_exec:file read;
+allow boringssl_self_test glgps_exec:file getattr;

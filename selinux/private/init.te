@@ -1,1 +1,15 @@
+permissive init;
+
 allow init firmware_exynos:dir { read open };
+allow init vendor_boringssl_self_test_exec:file execute_no_trans;
+allow init hal_allocator_default:binder call;
+allow init hal_allocator_default:fd use;
+allow init system_suspend:binder call;
+allow init permissioncontroller_app:fd use;
+allow init self:udp_socket ioctl;
+allow init gallery_app:fd use;
+allow init self:process execmem;
+allow init untrusted_app:binder transfer;
+allow init untrusted_app:fd use;
+allow init gmscore_app:fd use;
+allow init updater_app:fd use;

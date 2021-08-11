@@ -3,3 +3,7 @@ allow surfaceflinger sysfs_display:dir search;
 allow surfaceflinger sysfs_display:file { open read };
 #allow surfaceflinger unlabeled:file { execute getattr open read };
 allow surfaceflinger zygote:fd use;
+allow surfaceflinger glgps_exec:file read;
+allow surfaceflinger glgps_exec:file getattr;
+allow surfaceflinger init:binder { call transfer };
+allow surfaceflinger vendor_file:file { execute getattr open read };

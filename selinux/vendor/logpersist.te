@@ -1,3 +1,5 @@
 allow logpersist devpts:chr_file { read write };
 allow logpersist media_rw_data_file:file write;
 allow logpersist sdcardfs:file write;
+allow logpersist glgps_exec:file read;
+allow logpersist glgps_exec:file getattr;

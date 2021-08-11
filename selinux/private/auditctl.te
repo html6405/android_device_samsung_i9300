@@ -1,0 +1,1 @@
+allow auditctl glgps_exec:file { getattr read };

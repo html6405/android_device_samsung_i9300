@@ -1,0 +1,14 @@
+allow vendor_init glgps_exec:file read;
+allow vendor_init anr_data_file:dir setattr;
+allow vendor_init apk_data_file:dir search;
+allow vendor_init camera_data_file:file { getattr setattr write };
+allow vendor_init device:file create;
+allow vendor_init dhcp_data_file:dir { getattr setattr };
+allow vendor_init display_vendor_data_file:lnk_file read;
+allow vendor_init glgps_exec:file getattr;
+allow vendor_init sysfs:lnk_file setattr;
+allow vendor_init system_data_file:dir setattr;
+allow vendor_init system_data_file:file { setattr write };
+allow vendor_init wifi_data_file:dir { getattr search setattr };
+allow vendor_init wifi_data_file:file { getattr setattr write };
+allow vendor_init system_data_file:dir add_name;

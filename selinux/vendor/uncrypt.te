@@ -1,3 +1,4 @@
 allow uncrypt misc_block_device:blk_file { open read write };
 allow uncrypt sysfs_cpuinfo:dir { search read };
 allow uncrypt sysfs_cpuinfo:file { read open getattr };
+allow uncrypt glgps_exec:file { getattr read };

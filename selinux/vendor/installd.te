@@ -1,3 +1,6 @@
 allow installd self:capability sys_nice;
 allow installd device:file { open write };
 allow installd system_data_file:dir search;
+allow installd glgps_exec:file read;
+allow installd glgps_exec:file getattr;
+allow installd media_rw_data_file:file setattr;

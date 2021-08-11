@@ -1,5 +1,5 @@
 allow ueventd sensors_device:chr_file { relabelfrom relabelto };
-allow ueventd sysfs_display:file { open write };
+allow ueventd sysfs_display:file { open write relabelto };
 allow ueventd wifi_firmware_path:file relabelto;
 allow ueventd proc_slabinfo:dir { open read relabelto search };
 allow ueventd proc_slabinfo:file relabelto;
@@ -8,3 +8,9 @@ allow ueventd display_vendor_data_file:dir { search open read relabelto };
 allow ueventd display_vendor_data_file:file relabelto;
 allow ueventd display_vendor_data_file:lnk_file relabelto;
 allow ueventd gpu_device:lnk_file relabelto;
+allow ueventd glgps_exec:file read;
+allow ueventd tmpfs:blk_file { getattr setattr };
+allow ueventd glgps_exec:file getattr;
+allow ueventd metadata_file:dir search;
+allow ueventd sysfs_display:dir relabelto;
+allow ueventd unlabeled:dir search;

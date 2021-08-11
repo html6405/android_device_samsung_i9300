@@ -1,0 +1,2 @@
+allow credstore glgps_exec:file read;
+allow credstore glgps_exec:file getattr;
