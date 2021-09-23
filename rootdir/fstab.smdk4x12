@@ -2,7 +2,7 @@
 # <src>						<mnt_point>		<type>		<mnt_flags and options>		<fs_mgr_flags>
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-/dev/block/platform/dw_mmc/by-name/EFS			/efs			ext4		noatime,nosuid,nodev,journal_async_commit,errors=panic		wait
+/dev/block/platform/dw_mmc/by-name/EFS			/efs			ext4		noatime,nosuid,nodev,journal_async_commit,errors=panic		wait,first_stage_mount
 /dev/block/platform/dw_mmc/by-name/SYSTEM		/system			ext4		ro,noatime							wait,first_stage_mount
 /dev/block/platform/dw_mmc/by-name/CACHE		/cache			f2fs		noatime,discard,inline_xattr,inline_data,nosuid,nodev		wait
 /dev/block/platform/dw_mmc/by-name/CACHE		/cache			ext4		noatime,nosuid,nodev,journal_async_commit,errors=panic		wait
