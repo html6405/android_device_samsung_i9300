@@ -104,8 +104,7 @@ PRODUCT_COPY_FILES += \
 # prebuild apps
 
 PRODUCT_PACKAGES += \
-	Via \
-	spirit_radio
+	Via
 
 # UMS
 PRODUCT_COPY_FILES += \
