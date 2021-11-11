@@ -73,6 +73,7 @@
 /vendor/bin/restart_rild.sh                               u:object_r:radioreset_exec:s0
 /vendor/bin/hw/wpa_supplicant                                    u:object_r:hal_wifi_default_exec:s0
 /vendor/bin/main_route_table.sh                               u:object_r:main_route_table_exec:s0
+/vendor/bin/navbar.sh                                     u:object_r:navbar_exec:s0
 
 /dev/exynos-mem							 u:object_r:video_device:s0
 /data/ISP_CV							 u:object_r:camera_data_file:s0

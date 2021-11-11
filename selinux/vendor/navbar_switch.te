@@ -1,0 +1,7 @@
+type navbar, domain;
+type navbar_exec, exec_type, file_type;
+
+permissive navbar;
+init_daemon_domain(navbar);
+
+allow navbar toolbox_exec:file { execute execute_no_trans getattr open read };
