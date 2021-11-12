@@ -48,7 +48,7 @@
          sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
     -->
 
-    <integer name="config_longPressOnMenuBehavior">9</integer>
+    <integer name="config_longPressOnMenuBehavior">2</integer>
 
     <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
