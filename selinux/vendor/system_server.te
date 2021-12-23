@@ -4,7 +4,7 @@ allow system_server efs_device_file:dir search;
 allow system_server self:capability sys_module;
 allow system_server system_file:file execmod;
 allow system_server uhid_device:chr_file { read write ioctl open };
-allow system_server radio_data:dir search;
+allow system_server radio_core_data_file:dir search;
 allow system_server sysfs_display:dir search;
 allow system_server sysfs_display:file { getattr open read write };
 allow system_server ion_device:chr_file write;
