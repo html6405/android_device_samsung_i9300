@@ -66,5 +66,5 @@ endif
 
 # SELinux
 BOARD_SEPOLICY_DIRS += device/samsung/i9300/selinux/vendor
-BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/samsung/i9300/selinux/public
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/samsung/i9300/selinux/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += device/samsung/i9300/selinux/public
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/samsung/i9300/selinux/private
