@@ -1,5 +1,5 @@
-allow rild radio_data:dir { search write remove_name getattr add_name setattr };
-allow rild radio_data:file { write getattr setattr read create unlink open };
+allow rild radio_core_data_file:dir { search write remove_name getattr add_name setattr };
+allow rild radio_core_data_file:file { write getattr setattr read create unlink open };
 allow rild storage_file:dir search;
 allow rild efs_block_device:blk_file read;
 allow rild efs_device_file:dir search;

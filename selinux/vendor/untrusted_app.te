@@ -34,7 +34,6 @@ allow untrusted_app dalvikcache_data_file:file execmod;
 allow untrusted_app proc:file getattr;
 allow untrusted_app proc_qtaguid_stat:file getattr;
 allow untrusted_app system_lib_file:file execmod;
-allow untrusted_app adbd_prop:file { getattr open };
 allow untrusted_app apexd_prop:file getattr;
 allow untrusted_app apk_verity_prop:file open;
 allow untrusted_app bluetooth_a2dp_offload_prop:file open;

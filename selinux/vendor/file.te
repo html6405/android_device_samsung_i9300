@@ -7,7 +7,6 @@ type tombstones_device_file, file_type;
 type preload_device_file, file_type;
 #type proc_cmdline, fs_type, proc_type;
 type sysfs_radio, fs_type, sysfs_type;
-type radio_data, file_type;
 type cbd_device, dev_type;
 type wifi_firmware_path, file_type;
 type sysfs_lmkd, fs_type, sysfs_type;
