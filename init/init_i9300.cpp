@@ -75,7 +75,7 @@ void vendor_load_properties()
     char const *serial_number_file = SERIAL_NUMBER_FILE;
     std::string serial_number;
 
-    property_override("ro.treble.enabled", "true");
+    //property_override("ro.treble.enabled", "true");
     property_override("rild.libargs", "-d /dev/ttyS0");
 
     if (ReadFileToString(serial_number_file, &serial_number)) {
