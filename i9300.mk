@@ -87,7 +87,8 @@ PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
     Nfc \
-    Tag
+    Tag \
+    android.hardware.nfc@1.2-service.samsung
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
