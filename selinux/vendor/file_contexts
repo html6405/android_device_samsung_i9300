@@ -91,7 +91,7 @@
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.samsung                 u:object_r:hal_lineage_touch_default_exec:s0
 /vendor/bin/hw/android.hardware.authsecret@1.0-service                                      u:object_r:hal_authsecret_default_exec:s0
 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service.software                             u:object_r:hal_gatekeeper_default_exec:s0
-/vendor/bin/hw/android.hardware.ir@1.0-service.samsung                                      u:object_r:hal_ir_default_exec:s0
+/vendor/bin/hw/android.hardware.nfc@1.2-service.samsung                                     u:object_r:hal_nfc_default_exec:s0
 
 # LiveDisplay HAL
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.samsung-exynos    u:object_r:hal_lineage_livedisplay_sysfs_exec:s0
