@@ -39,7 +39,7 @@ on init
 on boot
 
 # RIL
-    setprop rild.libargs "-d /dev/ttyS0"
+    setprop vendor.rild.libargs "-d /dev/ttyS0"
 
     # Flash storage isn't a good entropy source, and only causes
     # locking overhead in the kernel. Turn it off.

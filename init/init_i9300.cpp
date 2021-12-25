@@ -76,7 +76,7 @@ void vendor_load_properties()
     std::string serial_number;
 
     //property_override("ro.treble.enabled", "true");
-    property_override("rild.libargs", "-d /dev/ttyS0");
+    property_override("vendor.rild.libargs", "-d /dev/ttyS0");
 
     if (ReadFileToString(serial_number_file, &serial_number)) {
         serial_number = Trim(serial_number);
