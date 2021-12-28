@@ -63,10 +63,6 @@ on property:sys.boot_completed=1
     write /sys/kernel/mm/ksm/sleep_millisecs 500
     write /sys/kernel/mm/ksm/run 0
 
-    # Swapping 1 page at a time is ok
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 1
-
     # increase read-ahead value to 256 kb
     write /sys/block/mmcblk0/queue/read_ahead_kb 256
 
