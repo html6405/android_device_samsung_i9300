@@ -102,11 +102,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:vendor/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:vendor/etc/permissions/android.hardware.nfc.xml
 
-# prebuild apps
-
-PRODUCT_PACKAGES += \
-	Via
-
 # UMS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ums_init.sh:vendor/bin/ums_init.sh
