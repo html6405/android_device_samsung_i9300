@@ -102,6 +102,19 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:vendor/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:vendor/etc/permissions/android.hardware.nfc.xml
 
+# NFCEE access control
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
+else
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
+endif
+
+PRODUCT_COPY_FILES += \
+    $(NFCEE_ACCESS_PATH):vendor/etc/nfcee_access.xml
+
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras
+
 # UMS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/ums_init.sh:vendor/bin/ums_init.sh
