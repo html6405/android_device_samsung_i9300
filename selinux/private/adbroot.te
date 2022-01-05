@@ -1,2 +1,3 @@
+allow adbroot device:file { open write };
 allow adbroot glgps_exec:file read;
 allow adbroot glgps_exec:file getattr;

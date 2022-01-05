@@ -1,5 +1,3 @@
-allow nfc sysfs_cpuinfo:dir search;
-allow nfc sysfs_cpuinfo:file { getattr open read };
 allow nfc vendor_file:file getattr;
 allow nfc init:binder { call transfer };
 allow nfc vendor_file:file { open read };

@@ -56,10 +56,6 @@
 #============= untrusted_app_27 ==============
 #allow untrusted_app_27 method_trace_data_file:file { execute read unlink };
 
-#============= isolated_app ==============
-#allow isolated_app sysfs_cpuinfo:dir { open read };
-#allow isolated_app sysfs_cpuinfo:file { open read };
-
 #============= recovery ==============
 #allow recovery vold_data_file:dir { getattr open read search };
 #allow recovery keystore_data_file:file getattr;

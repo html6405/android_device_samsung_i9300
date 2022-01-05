@@ -1,0 +1,2 @@
+allow llkd glgps_exec:file read;
+allow llkd glgps_exec:file getattr;

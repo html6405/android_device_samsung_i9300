@@ -1,5 +1,3 @@
-allow bootanim sysfs_cpuinfo:dir search;
-allow bootanim sysfs_cpuinfo:file { getattr open read };
 allow bootanim glgps_exec:file { getattr read };
 allow bootanim init:binder call;
 allow bootanim vendor_file:file { execute getattr open read };

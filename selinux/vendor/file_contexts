@@ -1,4 +1,3 @@
-
 # GFX
 /dev/mali                                                        u:object_r:gpu_device:s0
 /dev/ump                                                         u:object_r:gpu_device:s0
@@ -44,6 +43,9 @@
 # Sensors
 /dev/akm8975                                                     u:object_r:sensors_device:s0
 
+# Vibrator
+/sys/devices/virtual/timed_output/vibrator/enable(/.*)?		u:object_r:sysfs_vibrator:s0
+
 # Keys
 /sys/devices/virtual/sec/sec_key/wakeup_keys                     u:object_r:sysfs_sensors:s0
 
@@ -60,13 +62,13 @@
 /vendor/firmware/mfc_fw.bin                               u:object_r:firmware_mfc:s0
 
 # Display
-/sys/devices/platform/s5p-dsim.0(/.*)?			u:object_r:display_vendor_data_file:s0
-/sys/devices/platform/samsung-pd.2/mdnie/mdnie(/.*)?		u:object_r:display_vendor_data_file:s0
+/sys/devices/platform/s5p-dsim.0(/.*)?			u:object_r:sysfs_display:s0
+/sys/devices/platform/samsung-pd.2/mdnie/mdnie(/.*)?		u:object_r:sysfs_display:s0
 /sys/devices/platform/samsung-pd.2/s3cfb.0(/.*)?		u:object_r:sysfs_display:s0
 
 # Executables
 /vendor/bin/cbd                                                  u:object_r:cpboot-daemon_exec:s0
-/vendor/bin/macloader                                     u:object_r:macloader_exec:s0
+/(vendor|system/vendor)/bin/macloader                                            u:object_r:macloader_exec:s0
 /system/bin/tinyplay                                             u:object_r:tinyplay_exec:s0
 /vendor/bin/glgps                                         u:object_r:glgps_exec:s0
 /vendor/bin/restart_rild.sh                               u:object_r:radioreset_exec:s0
@@ -86,15 +88,9 @@
 /(vendor|system/vendor)/lib/hw/gralloc.exynos4.so							                u:object_r:system_file:s0
 /(vendor|system/vendor)/lib/hw/hwcomposer.exynos4.so							            u:object_r:system_file:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.exynos4412			u:object_r:hal_power_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@[0-9]\.[0-9]-service\.exynos4		u:object_r:hal_gnss_default_exec:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light@[0-9]\.[0-9]-service\.samsung 		u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.samsung                 u:object_r:hal_lineage_touch_default_exec:s0
 /vendor/bin/hw/android.hardware.authsecret@1.0-service                                      u:object_r:hal_authsecret_default_exec:s0
-/vendor/bin/hw/android.hardware.gatekeeper@1.0-service.software                             u:object_r:hal_gatekeeper_default_exec:s0
 /vendor/bin/hw/android.hardware.nfc@1.2-service.samsung                                     u:object_r:hal_nfc_default_exec:s0
-
-# LiveDisplay HAL
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@2\.0-service\.samsung-exynos    u:object_r:hal_lineage_livedisplay_sysfs_exec:s0
 
 # healthd
 /sys/devices/platform/i2c-gpio.17/i2c-17/17-0066/max77693-charger(/.*)?	u:object_r:sysfs_batteryinfo:s0
@@ -102,47 +98,60 @@
 /sys/devices/platform/i2c-gpio.14/i2c-14/14-0036/power_supply(/.*)?	u:object_r:sysfs_batteryinfo:s0
 
 # CPU
-/sys/power/cpufreq_min_limit						u:object_r:sysfs_devices_system_cpu:s0
-/sys/power/cpufreq_max_limit						u:object_r:sysfs_devices_system_cpu:s0
-/sys/power/cpufreq_table						    u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/platform/s5p-tmu/temperature			u:object_r:sysfs_devices_system_cpu:s0
-
+/sys/power/cpufreq_max_limit                                     u:object_r:sysfs_devices_system_cpu:s0
+/sys/power/cpufreq_min_limit                                     u:object_r:sysfs_devices_system_cpu:s0
+/sys/power/cpufreq_table                                         u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/platform/s5p-tmu/temperature                        u:object_r:sysfs_devices_system_cpu:s0
 # lmkd
 /sys/module/lowmemorykiller(/.*)?                                u:object_r:sysfs_lmkd:s0
 
 # zram
 /sys/devices/virtual/block/zram0(/.*)?                           u:object_r:sysfs_zram:s0
 
+# BLN
+/sys/devices/virtual/misc/backlightnotification(/.*)?            u:object_r:sysfs_bln:s0
+
+# USB
+/sys/devices/virtual/android_usb/android0(/.*)?                  u:object_r:sysfs_usb:s0
+/sys/devices/virtual/net/rmnet0(/.*)?                            u:object_r:sysfs_rmnet:s0
+
+# sysfs - block/storage
+/sys/devices/platform/dw_mmc/mmc_host/mmc[0-9]/mmc[0-9]:[0-9]+/block/mmcblk[0-9]/queue/iosched(/.*)?  u:object_r:sysfs_io_sched:s0
+
+/sys/devices/virtual/sec/sec_key(/.*)?                           u:object_r:sysfs_sec_key:s0
+/sys/devices/virtual/sec/sec_touchkey(/.*)?                      u:object_r:sysfs_sec_touchkey:s0
+/sys/devices/virtual/sec/led(/.*)?                               u:object_r:sysfs_sec_led:s0
+
+# Wakeup sources
+/sys/kernel/debug/wakeup_sources				u:object_r:debugfs_wakeup_sources:s0
+
+# Suspend system
+/sys/power/wake_lock						u:object_r:sysfs_wake_lock:s0
+/sys/power/wake_unlock						u:object_r:sysfs_wake_lock:s0
+/sys/power/wakeup_count						u:object_r:sysfs_power:s0
+/sys/power/state						u:object_r:sysfs_power:s0
+
+# LiveDisplay HAL
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.livedisplay@[0-9]\.[0-9]-service\.samsung-exynos    u:object_r:hal_lineage_livedisplay_exynos_exec:s0
+
+# Lineage Trust HAL
+/system/vendor/bin/hw/vendor\.lineage\.trust@1\.0-service                    u:object_r:hal_trust_default_exec:s0
+
 # GPS
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gnss@[0-9]\.[0-9]-service\.exynos4    u:object_r:hal_gnss_default_exec:s0
 /data/gps/\.gpsd.lock                                            u:object_r:gps_data_file:s0
 /data/gps/glgpsctrl                                              u:object_r:gps_data_file:s0
 /data/gps/\.gps\.interface\.pipe\.to_gpsd                        u:object_r:gps_data_file:s0
 /data/gps/\.gps\.interface\.pipe\.to_jni                         u:object_r:gps_data_file:s0
 /data/gps/gldata\.sto                                            u:object_r:gps_data_file:s0
 
-# Wakeup sources
-/sys/kernel/debug/wakeup_sources				u:object_r:debugfs_wakeup_sources:s0
+# Light
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@[0-9]\.[0-9]-service\.samsung    u:object_r:hal_light_default_exec:s0
 
-# Suspend system
-/sys/power(/.*)? 						u:object_r:sysfs_power:s0
-/sys/power/wake_lock						u:object_r:sysfs_wake_lock:s0
-/sys/power/wake_unlock						u:object_r:sysfs_wake_lock:s0
-/sys/power/wakeup_count					u:object_r:sysfs_wake_lock:s0
-/sys/power/state						u:object_r:sysfs_wake_lock:s0
+# Gatekeeper
+/(vendor|system/vendor)/bin/hw/android\.hardware\.gatekeeper@1\.0-service\.software       u:object_r:hal_gatekeeper_default_exec:s0
 
-# Slab
-/sys/kernel/slab(/.*)?						u:object_r:proc_slabinfo:s0
+# Wifi
+/(vendor|system/vendor)/bin/hw/android\.hardware\.wifi@1\.0-service-lazy\.legacy       u:object_r:hal_wifi_default_exec:s0
 
-# Boeffla
-/sys/devices/virtual/misc/boeffla_sound(/.*)?			u:object_r:sysfs_boeffla:s0
-/sys/class/misc/boeffla_sound(/.*)?				u:object_r:sysfs_boeffla:s0
-
-# cgroup
-/dev/cpuset(/.*)?						u:object_r:cgroup:s0
-/dev/stune(/.*)?						u:object_r:cgroup:s0
-
-# USB
-/sys/devices/virtual/android_usb/android0(/.*)?                  u:object_r:sysfs_usb:s0
-
-/sys/devices/virtual/sec/sec_touchkey(/.*)?                   u:object_r:sysfs_sec_touchkey:s0
-/sys/devices/virtual/sec/led(/.*)?                            u:object_r:sysfs_sec_led:s0
+/system/bin/clean_scratch_files                         u:object_r:clean_scratch_files_exec:s0

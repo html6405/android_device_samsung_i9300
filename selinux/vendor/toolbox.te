@@ -1,3 +1,4 @@
+allow toolbox init:fifo_file { getattr write };
 allow toolbox init:fifo_file { getattr write ioctl read};
 allow toolbox ctl_rildaemon_prop:property_service set;
 allow toolbox radio_prop:property_service set;
@@ -5,3 +6,13 @@ allow toolbox property_socket:sock_file write;
 allow toolbox init:unix_stream_socket { connectto read write };
 allow toolbox glgps_exec:file read;
 allow toolbox glgps_exec:file getattr;
+allow toolbox efs_device_file:dir search;
+allow toolbox efs_file:dir search;
+allow toolbox efs_file:file { getattr setattr };
+allow toolbox radio_core_data_file:dir { remove_name search write };
+allow toolbox radio_core_data_file:file { getattr read setattr unlink write };
+allow toolbox radio_device:chr_file { read write };
+allow toolbox block_device:blk_file { open read };
+allow toolbox self:capability dac_override;
+allow toolbox system_data_root_file:dir add_name;
+allow toolbox system_data_root_file:file { create open read write };

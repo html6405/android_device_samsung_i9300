@@ -1,2 +1,1 @@
-allow fsck_untrusted sysfs_cpuinfo:dir search;
-allow fsck_untrusted sysfs_cpuinfo:file { read getattr open };
+

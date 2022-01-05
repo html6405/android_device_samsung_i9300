@@ -1,2 +1,1 @@
-allow shared_relro sysfs_cpuinfo:dir search;
-allow shared_relro sysfs_cpuinfo:file { getattr open read };
+allow shared_relro method_trace_data_file:file { getattr open read unlink execute };

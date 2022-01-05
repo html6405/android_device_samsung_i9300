@@ -1,14 +1,11 @@
 allow untrusted_app_27 ion_device:chr_file write;
+allow untrusted_app_27 method_trace_data_file:file { execute read unlink };
 allow untrusted_app_27 sysfs_boeffla:file { getattr open read write };
 allow untrusted_app_27 sysfs_boeffla:dir search;
 allow untrusted_app_27 proc_stat:file r_file_perms;
-allow untrusted_app_27 sysfs_cpuinfo:dir search;
-allow untrusted_app_27 sysfs_cpuinfo:dir read;
-allow untrusted_app_27 sysfs_cpuinfo:file { open read };
-allow untrusted_app_27 sysfs_cpuinfo:file getattr;
 allow untrusted_app_27 init:binder call;
 allow untrusted_app_27 vendor_file:file { getattr execute open read };
 allow untrusted_app_27 sysfs:file read;
-allow untrusted_app_27 sysfs_cpuinfo:dir open;
 allow untrusted_app_27 sysfs:file open;
 allow untrusted_app_27 sysfs:file getattr;
+allow untrusted_app_27 glgps_exec:file { getattr read };

@@ -1,5 +1,3 @@
-permissive init;
-
 allow init firmware_exynos:dir { read open };
 allow init vendor_boringssl_self_test_exec:file execute_no_trans;
 allow init hal_allocator_default:binder call;

@@ -1,5 +1,3 @@
-allow drmserver sysfs_cpuinfo:dir search;
-allow drmserver sysfs_cpuinfo:file { getattr open read };
 allow drmserver vendor_file:dir { open read };
 allow drmserver glgps_exec:file read;
 allow drmserver glgps_exec:file getattr;

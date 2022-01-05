@@ -7,3 +7,4 @@ allow vold efs_device_file:dir { ioctl open read };
 allow vold sysfs_mmc:file write;
 allow vold glgps_exec:file read;
 allow vold glgps_exec:file getattr;
+allow vold hal_bootctl_hwservice:hwservice_manager find;

@@ -1,6 +1,5 @@
 allow priv_app ion_device:chr_file write;
-allow priv_app sysfs_cpuinfo:dir { open read };
-allow priv_app sysfs_cpuinfo:file { getattr open read };
+allow priv_app method_trace_data_file:file { execute read unlink };
 allow priv_app vendor_file:file { getattr open read };
 allow priv_app init:binder call;
 allow priv_app vendor_file:file execute;
