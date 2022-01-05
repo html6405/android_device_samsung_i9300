@@ -1,4 +1,3 @@
-allow gmscore_app sysfs_cpuinfo:dir { open read };
 allow gmscore_app zygote:dir search;
 allow gmscore_app zygote:file { open read };
 allow gmscore_app hal_memtrack_hwservice:hwservice_manager find;

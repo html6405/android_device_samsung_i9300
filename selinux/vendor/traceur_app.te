@@ -1,2 +1,1 @@
-allow traceur_app sysfs_cpuinfo:dir search;
-allow traceur_app sysfs_cpuinfo:file { getattr open read };
+allow traceur_app method_trace_data_file:file { execute read };

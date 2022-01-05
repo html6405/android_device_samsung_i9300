@@ -1,3 +1,1 @@
-allow hal_ir_default sysfs_cpuinfo:dir { search };
-allow hal_ir_default sysfs_cpuinfo:file { read open getattr };
 allow hal_ir_default sysfs:file { read write open };

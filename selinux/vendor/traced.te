@@ -1,0 +1,1 @@
+allow traced glgps_exec:file { getattr read };

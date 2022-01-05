@@ -1,6 +1,7 @@
 allow hwservicemanager init:dir search;
 allow hwservicemanager init:file { open read };
 allow hwservicemanager init:process getattr;
+allow hwservicemanager init:binder { call transfer };
 allow hwservicemanager glgps_exec:file read;
 allow hwservicemanager glgps_exec:file getattr;
 allow hwservicemanager init:binder transfer;

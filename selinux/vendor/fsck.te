@@ -1,4 +1,5 @@
 allow fsck efs_block_device:blk_file { read write getattr open ioctl };
+allow fsck self:capability { dac_override dac_read_search };
 allow fsck preload_block_device:blk_file { ioctl open read write };
 allow fsck block_device:blk_file { ioctl open read write };
 allow fsck cache_file:dir getattr;

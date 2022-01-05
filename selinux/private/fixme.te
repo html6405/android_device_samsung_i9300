@@ -2,8 +2,13 @@
 # allow audioserver audioserver_tmpfs:file execute;
 
 #============= storaged ==============
-# allow storaged debugfs:file { getattr open read };
+allow storaged debugfs:file { getattr open read };
 
 #============= init ==============
 # allow init system_file:dir relabelfrom;
 # allow init system_file:lnk_file relabelfrom;
+
+#============= sysinit ==============
+#allow sysinit app_data_file:dir search;
+#allow sysinit app_data_file:file open;
+#allow sysinit self:capability dac_override;

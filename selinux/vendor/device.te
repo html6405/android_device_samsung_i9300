@@ -3,5 +3,3 @@ type efs_block_device, dev_type;
 type preload_block_device, dev_type;
 type mfc_device, dev_type;
 type gps_device, dev_type;
-type dock_device, dev_type;
-type efs_boot_dev, dev_type;

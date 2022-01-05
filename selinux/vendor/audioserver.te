@@ -1,9 +1,13 @@
 allow audioserver system_file:file execmod;
-allow audioserver rild:unix_stream_socket connectto;
+allow audioserver rild:unix_stream_socket { connectto read write };
 allow audioserver glgps_exec:file read;
 allow audioserver vendor_file:file read;
+allow audioserver vendor_file:file execmod;
+allow audioserver vendor_default_prop:file { open read };
 allow audioserver glgps_exec:file getattr;
 allow audioserver vendor_file:file open;
 allow audioserver audio_device:chr_file { ioctl open };
 allow audioserver audio_device:dir search;
 allow audioserver vendor_file:file { execute getattr };
+allow audioserver init:binder { call transfer };
+allow audioserver vendor_default_prop:file getattr;

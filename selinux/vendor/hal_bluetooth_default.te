@@ -1,0 +1,5 @@
+allow hal_bluetooth_default bluetooth_data_file:file { open read };
+allow hal_bluetooth_default efs_device_file:dir search;
+allow hal_bluetooth_default efs_file:dir search;
+allow hal_bluetooth_default firmware_bluetooth:file { open read };
+allow hal_bluetooth_default default_prop:file { getattr open read };

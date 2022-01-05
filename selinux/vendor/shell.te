@@ -1,6 +1,9 @@
+allow shell sysfs_display:dir { open read search };
+allow shell sysfs_display:file getattr;
+allow shell sysfs_display:lnk_file { getattr read };
+allow shell kernel:system syslog_read;
 #allow shell kernel:system syslog_read;
 allow shell su:process signal;
 allow shell kmsg_device:chr_file { open read };
 allow shell glgps_exec:file read;
-allow shell sysfs_cpuinfo:dir search;
-allow shell sysfs_cpuinfo:file { getattr open read };
+allow shell glgps_exec:file getattr;

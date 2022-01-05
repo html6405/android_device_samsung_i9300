@@ -1,1 +1,2 @@
-allow display_vendor_data_file sysfs:filesystem associate;
+
+

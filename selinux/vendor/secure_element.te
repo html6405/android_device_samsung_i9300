@@ -1,2 +1,1 @@
-allow secure_element sysfs_cpuinfo:dir search;
-allow secure_element sysfs_cpuinfo:file { getattr open read };
+allow secure_element method_trace_data_file:file { execute read unlink };

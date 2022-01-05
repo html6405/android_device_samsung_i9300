@@ -1,7 +1,5 @@
 
 allow glgps shell_exec:file { entrypoint getattr read };
-allow glgps sysfs_cpuinfo:dir search;
-allow glgps sysfs_cpuinfo:file { getattr open read };
 allow glgps system_data_file:dir { add_name remove_name write };
 allow glgps system_data_file:dir write;
 allow glgps system_data_file:fifo_file { create getattr open read setattr unlink };

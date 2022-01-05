@@ -1,10 +1,9 @@
-allow zygote init:unix_stream_socket { getattr read write };
-allow zygote exported_camera_prop:file read;
+allow zygote device:file { open write };
+allow zygote exported_camera_prop:file { getattr open read write };
 allow zygote proc_cmdline:file read;
-allow zygote sysfs_cpuinfo:dir { open read search };
 allow zygote exported_camera_prop:file { getattr open };
 allow zygote proc_cmdline:file { getattr open };
-allow zygote sysfs_cpuinfo:file { getattr open read };
 allow zygote glgps_exec:file { read getattr };
-allow zygote vendor_file:file read;
+allow zygote device:file { open write };
 allow zygote vendor_file:file { execute getattr open };
+allow zygote init:unix_stream_socket { getattr read write };

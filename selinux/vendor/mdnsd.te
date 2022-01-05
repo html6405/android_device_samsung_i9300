@@ -1,2 +1,1 @@
-allow mdnsd sysfs_cpuinfo:dir search;
-allow mdnsd sysfs_cpuinfo:file { getattr open read };
+

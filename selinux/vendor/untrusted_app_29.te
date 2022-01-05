@@ -1,8 +1,5 @@
-allow untrusted_app_29 sysfs_cpuinfo:dir search;
-allow untrusted_app_29 sysfs_cpuinfo:file { getattr open read };
 allow untrusted_app_29 glgps_exec:file { getattr read };
 allow untrusted_app_29 ion_device:chr_file write;
-allow untrusted_app_29 sysfs_cpuinfo:dir { open read };
 allow untrusted_app_29 vendor_file:file { execute read };
 allow untrusted_app_29 vendor_file:file r_file_perms;
 allow untrusted_app_29 init:binder call;

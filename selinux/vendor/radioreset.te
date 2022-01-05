@@ -8,8 +8,6 @@ allow radioreset init:unix_stream_socket connectto;
 allow radioreset property_socket:sock_file write;
 allow radioreset radio_prop:property_service set;
 allow radioreset shell_exec:file { entrypoint execute getattr open read };
-allow radioreset sysfs_cpuinfo:dir search;
-allow radioreset sysfs_cpuinfo:file { getattr open read };
 allow radioreset toolbox_exec:file { execute execute_no_trans getattr open read };
 allow radioreset radioreset_exec:file execute_no_trans;
 init_daemon_domain(radioreset);

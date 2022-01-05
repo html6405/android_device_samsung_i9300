@@ -1,4 +1,2 @@
-allow incidentd sysfs_cpuinfo:dir search;
-allow incidentd sysfs_cpuinfo:file { getattr open read };
 allow incidentd glgps_exec:file read;
 allow incidentd glgps_exec:file getattr;

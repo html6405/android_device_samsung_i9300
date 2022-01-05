@@ -1,4 +1,2 @@
-allow logd sysfs_cpuinfo:dir search;
-allow logd sysfs_cpuinfo:file { getattr open read };
 allow logd glgps_exec:file read;
 allow logd glgps_exec:file getattr;

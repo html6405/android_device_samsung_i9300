@@ -2,3 +2,4 @@ allow system_suspend sysfs_wake_lock:file { open read write };
 allow system_suspend glgps_exec:file read;
 allow system_suspend glgps_exec:file getattr;
 allow system_suspend init:binder transfer;
+allow system_suspend sysfs:file { open read write };
