@@ -155,3 +155,6 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.wifi@1\.0-service-lazy\.legacy       u:object_r:hal_wifi_default_exec:s0
 
 /system/bin/clean_scratch_files                         u:object_r:clean_scratch_files_exec:s0
+
+# Light
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.samsung       u:object_r:hal_light_default_exec:s0
