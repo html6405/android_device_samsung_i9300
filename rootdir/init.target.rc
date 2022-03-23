@@ -101,10 +101,6 @@ on post-fs-data
     restorecon /data/.cid.info
     restorecon /data/ISP_CV
 
-on fs
-    # zram
-    swapon_all /vendor/etc/fstab.smdk4x12
-
 on boot
 # cbd
 service cpboot-daemon /vendor/bin/cbd -d
