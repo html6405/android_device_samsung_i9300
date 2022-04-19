@@ -65,6 +65,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.HOME_APP_ADJ=1
 
+# Low RAM mode
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.config.low_ram=true
+
 # Force high-end graphics in low ram mode
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.force_highendgfx=true
