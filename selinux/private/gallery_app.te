@@ -1,3 +1,0 @@
-allow gallery_app rootfs:dir { add_name };
-allow gallery_app init:binder call;
-allow gallery_app ion_device:chr_file write;
