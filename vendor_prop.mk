@@ -88,3 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 # PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.supplicant_scan_interval=240
+
+# Audio
+PRODUCT_PROPERTY_OVERRIDES += \
+	audio.force_wideband=true
