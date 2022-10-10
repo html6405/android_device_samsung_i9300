@@ -42,10 +42,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     sensors.smdk4x12
 
-# Power
-PRODUCT_PACKAGES += \
-    power.smdk4x12
-
 # Gps
 PRODUCT_PACKAGES += \
     gps.smdk4x12 \
@@ -62,7 +58,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
-    SamsungServiceMode \
     tinyplay
 
 # RIL
@@ -77,9 +72,7 @@ PRODUCT_PACKAGES += \
 
 # f2fs
 PRODUCT_PACKAGES += \
-	fibmap.f2fs \
-	fsck.f2fs \
-	mkfs.f2fs
+	fsck.f2fs
 
 # NFC
 PRODUCT_PACKAGES += \
