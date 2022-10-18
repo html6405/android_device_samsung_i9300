@@ -76,7 +76,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.def.agps.mode=1
-
-# Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-	audio.force_wideband=true
