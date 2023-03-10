@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="updater_server_url" translatable="false">http://html6405.ddns.net/{device}/html6405/LOS20/{device}.json</string>
+    <string name="updater_server_url" translatable="false">http://ota.html6405.com/{device}/LOS20/{device}.json</string>
 
     <string name="menu_changelog_url" translatable="false">https://forum.xda-developers.com/t/rom-unofficial-13-i9300-lineageos-20-0-alpha.4496431/post-87471831</string>
 
