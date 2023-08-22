@@ -12,9 +12,7 @@
         "target_path": "hardware/samsung"
     }
     {
-        "remote": "github",
-        "repository": "TheMuppets/proprietary_vendor_samsung",
-        "target_path": "vendor/samsung",
-        "branch": "cm-13.0"
+        "repository": "android_packages_apps_SamsungServiceMode",
+        "target_path": "packages/apps/SamsungServiceMode"
     }
 ]
