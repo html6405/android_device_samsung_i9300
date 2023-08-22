@@ -11,4 +11,10 @@
         "repository": "android_hardware_samsung",
         "target_path": "hardware/samsung"
     }
+    {
+        "remote": "github",
+        "repository": "TheMuppets/proprietary_vendor_samsung",
+        "target_path": "vendor/samsung",
+        "branch": "cm-13.0"
+    }
 ]
