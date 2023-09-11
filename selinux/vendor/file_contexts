@@ -72,6 +72,7 @@
 /system/bin/tinyplay                                             u:object_r:tinyplay_exec:s0
 /vendor/bin/glgps                                         u:object_r:glgps_exec:s0
 /vendor/bin/restart_rild.sh                               u:object_r:radioreset_exec:s0
+/vendor/bin/tweaks.sh                               u:object_r:tweaks_exec:s0
 /vendor/bin/hw/wpa_supplicant                                    u:object_r:hal_wifi_default_exec:s0
 /vendor/bin/main_route_table.sh                               u:object_r:main_route_table_exec:s0
 /vendor/bin/navbar.sh                                     u:object_r:navbar_exec:s0
