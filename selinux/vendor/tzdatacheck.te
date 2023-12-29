@@ -1,2 +1,2 @@
-allow tzdatacheck glgps_exec:file read;
-allow tzdatacheck glgps_exec:file getattr;
+
+
