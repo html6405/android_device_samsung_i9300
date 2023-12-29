@@ -31,6 +31,8 @@
 // Speed conversion km/h to gps speed-value
 #define SPEED_CONVERT 0.2728
 
+#pragma clang diagnostic ignored "-Wincompatible-function-pointer-types"
+
 static const GpsFilterLocation defaultFilterLocation = { 10, true, 1.0f, 5, 60000 };
 
 static const GpsFilterLocation gpsFilterLocations[] = {
@@ -42,7 +44,7 @@ static const GpsFilterLocation gpsFilterLocations[] = {
     {  50, false, 16.0f,  8, 60000 },
 };
 
-static gpsFilterLocationsLength = sizeof(gpsFilterLocations) / sizeof(GpsFilterLocation);
+static int gpsFilterLocationsLength = sizeof(gpsFilterLocations) / sizeof(GpsFilterLocation);
 
 static GpsFilterLocation get_filterlocation(float accuracy) {
     for (int index = 0;index < gpsFilterLocationsLength; index++) {
