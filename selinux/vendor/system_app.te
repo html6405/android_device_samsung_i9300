@@ -10,7 +10,6 @@ allow system_app apexd:binder call;
 allow system_app installd:binder call;
 allow system_app netd:binder call;
 allow system_app vold:binder call;
-allow system_app iorapd:binder call;
 allow system_app proc_pagetypeinfo:file { getattr open read };
 allow system_app sysfs_zram:file { getattr open read };
 allow system_app init:binder call;
