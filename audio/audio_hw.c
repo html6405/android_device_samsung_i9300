@@ -361,6 +361,9 @@ static int start_call(struct m0_audio_device *adev)
 
     bt_on = adev->out_device & AUDIO_DEVICE_OUT_ALL_SCO;
 
+    if (property_get_bool("audio.force_wideband", false))
+        adev->wb_amr = true;
+
     if (bt_on) {
        /* use amr-nb for bluetooth */
        pcm_config_vx.rate = adev->bluetooth_wb ? VX_WB_SAMPLING_RATE : VX_NB_SAMPLING_RATE;
