@@ -68,7 +68,6 @@ allow init hal_gnss_hwservice:hwservice_manager find;
 allow init hal_health_hwservice:hwservice_manager find;
 allow init hal_light_hwservice:hwservice_manager find;
 allow init hal_usb_hwservice:hwservice_manager find;
-allow init main_route_table_exec:file execute_no_trans;
 allow init radio_device:chr_file { read write };
 allow init self:binder set_context_mgr;
 allow init service_manager_vndservice:service_manager add;

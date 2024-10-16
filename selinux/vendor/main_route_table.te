@@ -1,4 +1,0 @@
-type main_route_table, domain;
-type main_route_table_exec, exec_type, file_type;
-
-init_daemon_domain(main_route_table);
