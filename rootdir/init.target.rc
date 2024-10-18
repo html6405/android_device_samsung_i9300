@@ -63,15 +63,6 @@ on property:sys.boot_completed=1
     # increase read-ahead value to 256 kb
     write /sys/block/mmcblk0/queue/read_ahead_kb 256
 
-on property:gsm.network.type=HSPAP
-    setprop audio.force_wideband true
-
-on property:gsm.network.type=UMTS
-    setprop audio.force_wideband true
-
- on property:gsm.network.type=EDGE
-    setprop audio.force_wideband false
-
 on post-fs-data
 # icd
     exec icd_check
