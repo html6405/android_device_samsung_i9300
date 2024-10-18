@@ -363,8 +363,6 @@ static int start_call(struct m0_audio_device *adev)
 
     if (property_get_bool("audio.force_wideband", false))
         adev->wb_amr = true;
-    else if (property_get_bool("audio.force_wideband", true))
-        adev->wb_amr = false;
 
     if (bt_on) {
        /* use amr-nb for bluetooth */
