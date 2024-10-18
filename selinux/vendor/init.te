@@ -106,7 +106,6 @@ allow init platform_app:fd use;
 allow init radio:binder call;
 allow init radio_data_file:file { ioctl lock };
 allow init radio_device:chr_file { ioctl open };
-allow init radioreset_exec:file execute_no_trans;
 allow init rfkill_device:chr_file { open read };
 allow init self:netlink_generic_socket { bind create getattr read setopt write };
 allow init self:netlink_kobject_uevent_socket { bind create getopt read setopt };
