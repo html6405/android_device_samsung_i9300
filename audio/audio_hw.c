@@ -490,6 +490,7 @@ void audio_set_wb_amr_callback(void *data, int enable)
             start_call(adev);
         }
     }
+    ALOGD("audio_set_wb_amr_callback, enable: %d",enable);
     pthread_mutex_unlock(&adev->lock);
 }
 
@@ -2556,6 +2557,7 @@ static void adev_set_voice_session_bt_wideband(struct m0_audio_device *adev, boo
         end_call(adev);
         start_call(adev);
     }
+    ALOGD("adev_set_voice_session_bt_wideband, enable: %d",enable);
 }
 
 static int adev_set_parameters(struct audio_hw_device *dev, const char *kvpairs)
