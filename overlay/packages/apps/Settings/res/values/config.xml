@@ -16,9 +16,7 @@
 -->
 
 <resources xmlns:xliff="urnasis:names:tc:xliff:document:1.2 ">
-    <!-- Volume Rocker Wake -->
-    <bool name="config_show_volumeRockerWake">true</bool>
-    
+
         <!-- Whether or not the dock settings are to be displayed for this device when docked -->
     <bool name="has_dock_settings">true</bool>
     
