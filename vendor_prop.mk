@@ -37,7 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RAM optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
-	config.disable_atlas=true \
 	ro.sys.fw.trim_enable_memory=805306368 \
 	ro.sys.fw.use_trim_settings=true \
 	ro.sys.fw.empty_app_percent=25 \
