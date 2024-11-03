@@ -51,7 +51,7 @@ on boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
 
 on property:sys.boot_completed=1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor zzmoove
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     setprop sys.usb.configfs 1
 
     # KSM
