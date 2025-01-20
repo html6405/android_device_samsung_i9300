@@ -107,9 +107,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras
 
-# UMS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/ums_init.sh:vendor/bin/ums_init.sh
+
 
 # Apply Dalvik config for 512MB phone
 $(call inherit-product, $(LOCAL_PATH)/phone-hdpi-512-dalvik-heap.mk)
