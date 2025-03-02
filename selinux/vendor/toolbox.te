@@ -15,3 +15,6 @@ allow toolbox block_device:blk_file { open read };
 allow toolbox self:capability dac_override;
 allow toolbox system_data_root_file:dir add_name;
 allow toolbox system_data_root_file:file { create open read write };
+allow toolbox wifi_hal_prop:file { getattr open read };
+allow toolbox wifi_prop:file { getattr open read };
+allow toolbox vendor_default_prop:file r_file_perms;

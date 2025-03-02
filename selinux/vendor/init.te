@@ -223,6 +223,8 @@ allow init hal_wifi_supplicant_default_exec:file execute_no_trans;
 allow init hal_wifi_supplicant_default:unix_dgram_socket getattr;
 allow init kernel:security check_context;
 allow init hal_wifi_supplicant_service:service_manager add;
+allow init wifi_killer_enabler_exec:file execute_no_trans;
+allow init wifi_service:service_manager find;
 allow init hal_graphics_allocator_hwservice:hwservice_manager find;
 allow init logdr_socket:sock_file write;
 allow init self:capability2 mac_admin;

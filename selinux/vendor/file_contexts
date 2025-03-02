@@ -69,6 +69,8 @@
 /system/bin/tinyplay                                             u:object_r:tinyplay_exec:s0
 /vendor/bin/glgps                                         u:object_r:glgps_exec:s0
 /vendor/bin/tweaks.sh                               u:object_r:tweaks_exec:s0
+/vendor/bin/wifikiller.sh                                  u:object_r:wifi_killer_enabler_exec:s0
+/vendor/bin/wifienabler.sh                                  u:object_r:wifi_killer_enabler_exec:s0
 
 /dev/exynos-mem							 u:object_r:video_device:s0
 /data/ISP_CV							 u:object_r:camera_data_file:s0
