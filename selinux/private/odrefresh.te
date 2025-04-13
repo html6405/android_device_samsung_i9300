@@ -1,0 +1,2 @@
+allow odrefresh glgps_exec:file r_file_perms;
+allow odrefresh unlabeled:file r_file_perms;

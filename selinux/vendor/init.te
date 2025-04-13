@@ -12,12 +12,10 @@ allow init proc:file { setattr open write };
 allow init sysfs:file { setattr };
 allow init sysfs_batteryinfo:file setattr;
 allow init su_exec:file { getattr open read };
-allow init sysfs_lmkd:file setattr;
-#allow init sudaemon:process { noatsecure rlimitinh siginh transition };
+allow init sysfs_lmkd:file rw_file_perms;
 allow init sysfs_bln:file { open write };
 allow init sysfs_display:file read;
 allow init sysfs_usb:file { setattr write };
-allow init sysfs_lmkd:file { open write };
 allow init sysfs_dm:dir relabelfrom;
 allow init sysfs_dm:file relabelfrom;
 allow init sysfs_io_sched:file { setattr w_file_perms };
@@ -176,9 +174,58 @@ allow init hal_vibrator_default_exec:file execute_no_trans;
 allow init hal_vibrator_hwservice:hwservice_manager { add find };
 allow init self:capability2 block_suspend;
 
-allow init self:udp_socket ioctl;
+#Wifi
+allowxperm init self:udp_socket ioctl 0x8927;
+allowxperm init self:udp_socket ioctl 0x89f1;
+
+#RIL
+allowxperm init self:udp_socket ioctl 0x8936;
+allowxperm init self:udp_socket ioctl 0x8916;
+allowxperm init self:udp_socket ioctl 0x891c;
+allowxperm init self:udp_socket ioctl 0x8922;
+
 allow init socket_device:sock_file { create setattr };
 allow init sysfs_vibrator:file read;
 allow init wpa_data_file:sock_file write;
+
+allow init default_android_hwservice:hwservice_manager { add find };
+allow init dnsmasq_exec:file r_file_perms;
+allow init hal_lineage_touch_hwservice:hwservice_manager { add find };
+allow init hci_attach_dev:chr_file { ioctl open read write };
+
+
+allow init netutils_wrapper_exec:file r_file_perms;
+allow init rs_exec:file r_file_perms;
+allow init runas_exec:file r_file_perms;
+allow init same_process_hal_file:file rx_file_perms;
+allow init sdcardd_exec:file r_file_perms;
+allow init self:capability sys_nice;
+allow init sysfs_rmnet:file open;
+allow init sgdisk_exec:file r_file_perms;
+allow init shell_exec:file execute_no_trans;
+allow init simpleperf_app_runner_exec:file r_file_perms;
+allow init sysfs_bluetooth_writable:file { open write };
+allow init tcpdump_exec:file r_file_perms;
+allow init vold_prepare_subdirs_exec:file r_file_perms;
+allow init hal_light_service:service_manager add;
+allow init gps_device:chr_file r_file_perms;
+allow init adb_data_file:dir r_dir_perms;
+allow init app_data_file:dir rw_dir_perms;
+allow init gps_data_file:fifo_file write;
+allow init gps_data_file:file lock;
+allow init hal_trust_default_exec:file execute_no_trans;
+allow init privapp_data_file:dir rw_dir_perms;
+allow init seapp_contexts_file:file r_file_perms;
+allow init shell_data_file:dir relabelfrom;
+allow init system_app_data_file:dir rw_dir_perms;
+allow init wifi_firmware_path:file rw_file_perms;
+allow init hal_wifi_supplicant_default_exec:file execute_no_trans;
+allow init hal_wifi_supplicant_default:unix_dgram_socket getattr;
+allow init kernel:security check_context;
+allow init hal_wifi_supplicant_service:service_manager add;
+allow init hal_graphics_allocator_hwservice:hwservice_manager find;
+allow init logdr_socket:sock_file write;
+allow init self:capability2 mac_admin;
+allow init sysfs_lmkd:file create_file_perms;
 
 domain_trans(init, rootfs, cpboot-daemon)

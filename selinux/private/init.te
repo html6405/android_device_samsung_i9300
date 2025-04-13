@@ -10,3 +10,7 @@ allow init untrusted_app:binder transfer;
 allow init untrusted_app:fd use;
 allow init gmscore_app:fd use;
 allow init updater_app:fd use;
+allow init blkid_exec:file r_file_perms;
+allow init incident_exec:file r_file_perms;
+allow init incident_helper_exec:file r_file_perms;
+allow init migrate_legacy_obb_data_exec:file r_file_perms;

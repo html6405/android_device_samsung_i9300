@@ -1,1 +1,4 @@
 allow secure_element method_trace_data_file:file { execute read unlink };
+allow secure_element system_data_file:dir { add_name remove_name };
+allow secure_element system_data_file:file { create open rename unlink write };
+allow secure_element unlabeled:file r_file_perms;

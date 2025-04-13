@@ -1,11 +1,10 @@
 allow cameraserver gpu_device:chr_file { ioctl open read write };
-allow cameraserver mnt_user_file:dir search;
+allow cameraserver mnt_user_file:dir r_dir_perms;
 allow cameraserver mnt_user_file:lnk_file { open read };
-allow cameraserver storage_file:dir search;
-allow cameraserver storage_file:lnk_file read;
-allow cameraserver media_rw_data_file:dir search;
-allow cameraserver sdcardfs:dir search;
-allow cameraserver glgps_exec:file read;
-allow cameraserver glgps_exec:file getattr;
+allow cameraserver storage_file:dir r_dir_perms;
+allow cameraserver storage_file:lnk_file r_file_perms;
+allow cameraserver media_rw_data_file:dir r_dir_perms;
+allow cameraserver sdcardfs:dir r_dir_perms;
+allow cameraserver glgps_exec:file r_file_perms;
 allow cameraserver init:binder { call transfer };
 allow cameraserver video_device:chr_file { read write };

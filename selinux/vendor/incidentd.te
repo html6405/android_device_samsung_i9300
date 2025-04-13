@@ -1,2 +1,1 @@
-allow incidentd glgps_exec:file read;
-allow incidentd glgps_exec:file getattr;
+allow incidentd glgps_exec:file r_file_perms;

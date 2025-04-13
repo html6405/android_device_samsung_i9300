@@ -1,6 +1,5 @@
-allow servicemanager rild:dir search;
+allow servicemanager rild:dir r_dir_perms;
 allow servicemanager rild:process getattr;
-allow servicemanager rild:file { open read };
-allow servicemanager glgps_exec:file read;
-allow servicemanager glgps_exec:file getattr;
+allow servicemanager rild:file r_file_perms;
+allow servicemanager glgps_exec:file r_file_perms;
 allow servicemanager init:binder transfer;

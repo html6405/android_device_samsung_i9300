@@ -1,10 +1,9 @@
-allow vold cache_file:dir { add_name remove_name write };
-allow vold cache_file:file { create open unlink write };
-allow vold efs_file:dir { add_name getattr remove_name write };
-allow vold efs_file:file { create unlink };
-allow vold sysfs_zram:file write;
-allow vold efs_device_file:dir { ioctl open read };
-allow vold sysfs_mmc:file write;
-allow vold glgps_exec:file read;
-allow vold glgps_exec:file getattr;
+allow vold cache_file:dir rw_dir_perms;
+allow vold cache_file:file rw_file_perms;
+allow vold efs_file:dir rw_dir_perms;
+allow vold efs_file:file rw_file_perms;
+allow vold sysfs_zram:file rw_file_perms;
+allow vold efs_device_file:dir r_dir_perms;
+allow vold sysfs_mmc:file rw_file_perms;
+allow vold glgps_exec:file r_file_perms;
 allow vold hal_bootctl_hwservice:hwservice_manager find;

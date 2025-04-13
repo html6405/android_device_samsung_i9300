@@ -1,1 +1,4 @@
-
+allow gmscore_app sysfs_devices_system_cpu:file r_file_perms;
+allow gmscore_app vendor_file:file r_file_perms;
+allow gmscore_app ion_device:chr_file rw_file_perms;
+allow gmscore_app vendor_file:file rx_file_perms;

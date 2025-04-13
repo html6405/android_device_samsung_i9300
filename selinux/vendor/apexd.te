@@ -1,2 +1,1 @@
-allow apexd glgps_exec:file read;
-allow apexd glgps_exec:file getattr;
+allow apexd glgps_exec:file r_file_perms;

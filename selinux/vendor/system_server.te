@@ -37,7 +37,6 @@ allow system_server default_android_service:service_manager { find };
 allow system_server init:fifo_file write;
 allow system_server unlabeled:file unlink;
 allow system_server zygote:process { getpgid setsched };
-unix_socket_connect(system_server, gps, gpsd)
 allow system_server gps_device:chr_file rw_file_perms;
 allow system_server init:binder call;
 allow system_server debugfs:file { getattr open read };
@@ -56,5 +55,5 @@ allow system_server vendor_file:file getattr;
 allow system_server init:process signal;
 allow init system_server:fd use;
 allow system_server exported_camera_prop:file rw_file_perms;
-allow system_server glgps_exec:file read;
 allow system_server vendor_security_patch_level_prop:file read;
+allow system_server glgps_exec:file r_file_perms;

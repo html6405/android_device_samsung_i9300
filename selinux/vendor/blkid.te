@@ -1,1 +1,1 @@
-allow blkid glgps_exec:file { getattr read };
+allow blkid glgps_exec:file r_file_perms;

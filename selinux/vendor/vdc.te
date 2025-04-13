@@ -1,2 +1,1 @@
-allow vdc glgps_exec:file read;
-allow vdc glgps_exec:file getattr;
+allow vdc glgps_exec:file r_file_perms;

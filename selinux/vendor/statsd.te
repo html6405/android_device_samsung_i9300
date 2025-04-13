@@ -1,2 +1,2 @@
-allow statsd glgps_exec:file read;
-allow statsd glgps_exec:file getattr;
+allow statsd glgps_exec:file r_file_perms;
+allow statsd same_process_hal_file:file read;

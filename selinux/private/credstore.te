@@ -1,0 +1,1 @@
+allow credstore glgps_exec:file r_file_perms;

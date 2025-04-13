@@ -1,2 +1,1 @@
-allow credstore glgps_exec:file read;
-allow credstore glgps_exec:file getattr;
+allow credstore glgps_exec:file r_file_perms;

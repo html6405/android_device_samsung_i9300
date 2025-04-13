@@ -1,0 +1,1 @@
+allow system_server_startup unlabeled:file r_file_perms;

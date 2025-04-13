@@ -1,2 +1,1 @@
-allow logd glgps_exec:file read;
-allow logd glgps_exec:file getattr;
+allow logd glgps_exec:file r_file_perms;

@@ -1,2 +1,1 @@
-allow mediametrics glgps_exec:file read;
-allow mediametrics glgps_exec:file getattr;
+allow mediametrics glgps_exec:file r_file_perms;

@@ -1,1 +1,1 @@
-allow gatekeeperd glgps_exec:file read;
+allow gatekeeperd glgps_exec:file r_file_perms;

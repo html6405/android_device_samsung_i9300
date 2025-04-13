@@ -1,2 +1,2 @@
-
+allow blkid_untrusted glgps_exec:file r_file_perms;
 

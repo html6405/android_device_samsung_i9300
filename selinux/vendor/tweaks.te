@@ -1,4 +1,0 @@
-type tweaks, domain;
-type tweaks_exec, exec_type, file_type;
-
-permissive tweaks;

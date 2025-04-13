@@ -1,3 +1,2 @@
 allow mediaextractor zygote:fd use;
-allow mediaextractor glgps_exec:file read;
-allow mediaextractor glgps_exec:file getattr;
+allow mediaextractor glgps_exec:file r_file_perms;

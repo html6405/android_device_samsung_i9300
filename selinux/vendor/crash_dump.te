@@ -1,2 +1,4 @@
 allow crash_dump keystore:process ptrace;
 allow crash_dump init:process ptrace;
+allow crash_dump ueventd:process ptrace;
+allow crash_dump kmsg_debug_device:chr_file append;

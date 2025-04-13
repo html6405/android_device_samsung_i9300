@@ -1,9 +1,9 @@
-allow untrusted_app_29 glgps_exec:file { getattr read };
-allow untrusted_app_29 ion_device:chr_file write;
-allow untrusted_app_29 vendor_file:file { execute read };
-allow untrusted_app_29 vendor_file:file r_file_perms;
+allow untrusted_app_29 glgps_exec:file r_file_perms;
+allow untrusted_app_29 ion_device:chr_file rw_file_perms;
+allow untrusted_app_29 vendor_file:file rx_file_perms;
 allow untrusted_app_29 init:binder call;
-allow untrusted_app_29 sysfs:file read;
+allow untrusted_app_29 sysfs:file r_file_perms;
 allow untrusted_app_29 hal_memtrack_hwservice:hwservice_manager find;
-allow untrusted_app_29 postinstall_mnt_dir:dir getattr;
-allow untrusted_app_29 proc_version:file read;
+allow untrusted_app_29 postinstall_mnt_dir:dir r_dir_perms;
+allow untrusted_app_29 proc_version:file r_file_perms;
+allow untrusted_app_29 unlabeled:file read;

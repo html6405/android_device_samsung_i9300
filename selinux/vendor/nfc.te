@@ -1,6 +1,6 @@
-allow nfc vendor_file:file getattr;
+allow nfc vendor_file:file rx_file_perms;
 allow nfc init:binder { call transfer };
-allow nfc vendor_file:file { open read };
-allow nfc nfc_device:chr_file { open read write };
-allow nfc vendor_file:file execute;
+allow nfc vendor_file:file r_file_perms;
+allow nfc nfc_device:chr_file rw_file_perms;
 allow init nfc:binder call;
+allow nfc unlabeled:file r_file_perms;

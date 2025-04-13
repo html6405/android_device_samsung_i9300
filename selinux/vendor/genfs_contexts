@@ -1,0 +1,7 @@
+genfscon proc /sys/vm/dirty_ratio                   u:object_r:proc_vm:s0
+genfscon proc /sys/vm/dirty_bytes                   u:object_r:proc_vm:s0
+genfscon proc /sys/vm/dirty_background_bytes        u:object_r:proc_vm:s0
+genfscon proc /sys/vm/min_free_kbytes               u:object_r:proc_vm:s0
+
+genfscon proc /sys/vm/swappiness                    u:object_r:proc_vm:s0
+genfscon proc /sys/vm/vfs_cache_pressure            u:object_r:proc_vm:s0

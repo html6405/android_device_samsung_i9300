@@ -1,0 +1,1 @@
+allow device_as_webcam unlabeled:file read;

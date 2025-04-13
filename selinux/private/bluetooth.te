@@ -1,2 +1,2 @@
-allow bluetooth firmware_exynos:dir { open read search };
-allow bluetooth firmware_exynos:file { open read };
+allow bluetooth firmware_exynos:dir r_dir_perms;
+allow bluetooth firmware_exynos:file r_file_perms;
