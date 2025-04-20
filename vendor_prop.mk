@@ -68,10 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.low_ram=true
 
-# Force high-end graphics in low ram mode
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.force_highendgfx=true
-
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.def.agps.mode=1
