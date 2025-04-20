@@ -37,24 +37,25 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RAM optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sys.fw.trim_enable_memory=805306368 \
-	ro.sys.fw.use_trim_settings=true \
-	ro.sys.fw.empty_app_percent=25 \
-	ro.sys.fw.trim_empty_percent=50 \
-	ro.sys.fw.trim_cache_percent=50 \
-	ro.sys.fw.bg_apps_limit=16 \
-	ro.sys.fw.bservice_limit=7 \
-	ro.sys.fw.bservice_age=6000 \
-	ro.sys.fw.bservice_enable=true
+    ro.sys.fw.trim_enable_memory=671088640 \
+    ro.sys.fw.use_trim_settings=true \
+    ro.sys.fw.empty_app_percent=25 \
+    ro.sys.fw.trim_empty_percent=30 \
+    ro.sys.fw.trim_cache_percent=30 \
+    ro.sys.fw.bg_apps_limit=12 \
+    ro.sys.fw.bservice_limit=6 \
+    ro.sys.fw.bservice_age=5000 \
+    ro.sys.fw.bservice_enable=true
 
 # hwui
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.hwui.drop_shadow_cache_size=1 \
-	ro.hwui.gradient_cache_size=0.2 \
-	ro.hwui.layer_cache_size=6 \
-	ro.hwui.path_cache_size=2 \
-	ro.hwui.r_buffer_cache_size=1 \
-	ro.hwui.texture_cache_size=8
+    ro.hwui.texture_cache_size=6 \
+    ro.hwui.layer_cache_size=4 \
+    ro.hwui.gradient_cache_size=0.2 \
+    ro.hwui.path_cache_size=1.0 \
+    ro.hwui.drop_shadow_cache_size=1 \
+    ro.hwui.r_buffer_cache_size=1 \
+    persist.sys.force_highendgfx=false
 
 # Free up RAM by purging assets.
 PRODUCT_PROPERTY_OVERRIDES += \
