@@ -21,6 +21,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	config.disable_atlas=true \
 	dalvik.vm.dexopt-data-only=1 \
 	dalvik.vm.dex2oat-Xmx=256m \
+	ro.sys.fw.dex2oat_thread_count=2 \
 	vendor.rild.libpath=/vendor/lib/libsecril-shim.so \
 	ro.ril.telephony.mqanelements=5 \
 	ro.sf.lcd_density=320 \
