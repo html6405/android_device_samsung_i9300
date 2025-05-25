@@ -1,1 +1,0 @@
-allow migrate_legacy_obb_data glgps_exec:file { getattr read };

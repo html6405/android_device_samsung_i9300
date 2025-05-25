@@ -1,3 +1,0 @@
-allow hal_allocator_default sysfs:file { getattr open read };
-allow hal_allocator_default glgps_exec:file read;
-allow hal_allocator_default glgps_exec:file getattr;

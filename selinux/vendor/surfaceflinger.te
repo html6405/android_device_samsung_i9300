@@ -1,9 +1,0 @@
-allow surfaceflinger ion_device:chr_file rw_file_perms;
-allow surfaceflinger sysfs_display:dir r_dir_perms;
-allow surfaceflinger sysfs_display:file r_file_perms;
-#allow surfaceflinger unlabeled:file { execute getattr open read };
-allow surfaceflinger zygote:fd use;
-allow surfaceflinger glgps_exec:file r_file_perms;
-allow surfaceflinger init:binder { call transfer };
-allow surfaceflinger vendor_file:file rx_file_perms;
-allow surfaceflinger vendor_default_prop:file r_file_perms;

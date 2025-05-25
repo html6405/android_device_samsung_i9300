@@ -1,5 +1,0 @@
-allow installd self:capability sys_nice;
-allow installd device:file { open write };
-allow installd system_data_file:dir search;
-allow installd glgps_exec:file r_file_perms;
-allow installd media_rw_data_file:file setattr;

@@ -1,3 +1,0 @@
-allow bootanim glgps_exec:file r_file_perms;
-allow bootanim init:binder call;
-allow bootanim vendor_file:file rx_file_perms;

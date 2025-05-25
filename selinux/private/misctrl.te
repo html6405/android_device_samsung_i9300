@@ -1,1 +1,0 @@
-allow misctrl glgps_exec:file r_file_perms;

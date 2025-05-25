@@ -61,8 +61,3 @@ TARGET_OTA_ASSERT_DEVICE := m0,i9300,GT-I9300
 ifneq ($(WITH_TWRP), true)
 TARGET_INIT_VENDOR_LIB := libinit_i9300
 endif
-
-# SELinux
-BOARD_VENDOR_SEPOLICY_DIRS += device/samsung/i9300/selinux/vendor
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += device/samsung/i9300/selinux/public
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/samsung/i9300/selinux/private

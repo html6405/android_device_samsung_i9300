@@ -1,2 +1,0 @@
-allow audioserver vendor_file:file execmod;
-allow audioserver audioserver_tmpfs:file execute;

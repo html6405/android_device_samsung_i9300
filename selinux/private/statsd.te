@@ -1,2 +1,0 @@
-allow statsd glgps_exec:file r_file_perms;
-allow statsd same_process_hal_file:file rx_file_perms;

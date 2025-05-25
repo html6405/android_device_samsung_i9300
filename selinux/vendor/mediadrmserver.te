@@ -1,3 +1,0 @@
-allow mediadrmserver sysfs_devices_system_cpu:dir r_dir_perms;
-allow mediadrmserver sysfs_devices_system_cpu:file r_file_perms;
-

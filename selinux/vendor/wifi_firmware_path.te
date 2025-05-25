@@ -1,1 +1,0 @@
-allow wifi_firmware_path sysfs:filesystem associate;

@@ -1,2 +1,0 @@
-allow gatekeeperd init:binder call;
-allow gatekeeperd glgps_exec:file getattr;

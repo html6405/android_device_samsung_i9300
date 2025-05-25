@@ -1,1 +1,0 @@
-allow odsign glgps_exec:file { getattr read };

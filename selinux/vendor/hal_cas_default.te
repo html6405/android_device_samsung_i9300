@@ -1,3 +1,0 @@
-allow hal_cas_default sysfs_devices_system_cpu:dir r_dir_perms;
-allow hal_cas_default sysfs_devices_system_cpu:file r_file_perms;
-allow hal_cas_default glgps_exec:file r_file_perms;

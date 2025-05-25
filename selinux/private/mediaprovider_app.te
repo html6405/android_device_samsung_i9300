@@ -1,5 +1,0 @@
-allow mediaprovider_app unlabeled:file getattr;
-allow mediaprovider_app rootfs:file { getattr setattr };
-allow mediaprovider_app vendor_file:file rx_file_perms;
-allow mediaprovider_app sdcardfs:lnk_file getattr;
-allow mediaprovider_app unlabeled:file r_file_perms;

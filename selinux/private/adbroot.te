@@ -1,2 +1,0 @@
-allow adbroot device:file { open write };
-allow adbroot glgps_exec:file r_file_perms;

@@ -1,3 +1,0 @@
-allow gsid device:file { open write };
-allow gsid glgps_exec:file read;
-allow gsid glgps_exec:file getattr;

@@ -1,3 +1,0 @@
-allow cameraserver firmware_exynos:dir search;
-allow cameraserver firmware_exynos:file { open read };
-allow cameraserver vendor_file:file { getattr execute open read };

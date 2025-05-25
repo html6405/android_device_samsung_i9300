@@ -1,7 +1,0 @@
-allow hal_wifi_default wifi_data_file:file { getattr open read write };
-allow hal_wifi_default wifi_firmware_path:file { open write };
-allow hal_wifi_default default_prop:property_service set;
-allow hal_wifi_default wifi_data_file:file { open read write };
-allow hal_wifi_default efs_device_file:dir r_dir_perms;
-allow hal_wifi_default efs_file:dir r_dir_perms;
-allow hal_wifi_default unlabeled:dir r_dir_perms;

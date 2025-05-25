@@ -1,1 +1,0 @@
-allow extra_free_kbytes glgps_exec:file r_file_perms;

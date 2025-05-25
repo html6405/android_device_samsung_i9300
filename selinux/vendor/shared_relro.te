@@ -1,2 +1,0 @@
-allow shared_relro method_trace_data_file:file { getattr open read unlink execute };
-allow shared_relro unlabeled:file r_file_perms;

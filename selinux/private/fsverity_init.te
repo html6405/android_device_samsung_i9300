@@ -1,2 +1,0 @@
-allow fsverity_init glgps_exec:file read;
-allow fsverity_init glgps_exec:file getattr;

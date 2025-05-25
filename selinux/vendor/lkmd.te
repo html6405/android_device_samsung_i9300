@@ -1,3 +1,0 @@
-allow lmkd zygote:dir r_dir_perms;
-allow lmkd zygote:file { open write };
-allow lmkd glgps_exec:file r_file_perms;

@@ -1,3 +1,0 @@
-allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
-allow hal_power_default sysfs_power:dir r_dir_perms;
-allow hal_power_default sysfs_power:file { open write };

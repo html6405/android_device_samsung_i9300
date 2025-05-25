@@ -1,2 +1,0 @@
-allow gpuservice glgps_exec:file r_file_perms;
-allow gpuservice graphics_config_prop:file { getattr open read };

@@ -1,2 +1,0 @@
-allow mediacodec system_file:dir r_dir_perms;
-allow mediacodec mfc_device:chr_file { read write open ioctl};

@@ -1,2 +1,0 @@
-allow system_server build_bootimage_prop:file r_file_perms;
-allow system_server proc:file r_file_perms;

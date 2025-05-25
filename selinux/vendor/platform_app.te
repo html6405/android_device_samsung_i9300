@@ -1,8 +1,0 @@
-allow platform_app battery_service:service_manager find;
-allow platform_app method_trace_data_file:file { execute read unlink };
-allow platform_app default_android_service:service_manager find;
-allow platform_app ion_device:chr_file rw_file_perms;
-allow platform_app exported_camera_prop:file { getattr open read write };
-allow platform_app init:binder { call transfer };
-allow platform_app vendor_file:file rx_file_perms;
-allow platform_app glgps_exec:file r_file_perms;

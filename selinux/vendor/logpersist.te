@@ -1,6 +1,0 @@
-allow logpersist system_data_file:dir { add_name open read write remove_name};
-allow logpersist system_data_file:file { ioctl write  append create open getattr read rename unlink };
-allow logpersist devpts:chr_file { read write };
-allow logpersist media_rw_data_file:file rw_file_perms;
-allow logpersist sdcardfs:file rw_file_perms;
-allow logpersist glgps_exec:file r_file_perms;

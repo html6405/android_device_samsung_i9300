@@ -1,1 +1,0 @@
-allow incidentd glgps_exec:file r_file_perms;

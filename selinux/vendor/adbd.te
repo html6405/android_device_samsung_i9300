@@ -1,3 +1,0 @@
-allow adbd self:capability dac_override;
-allow adbd glgps_exec:file r_file_perms;
-allow adbd vendor_default_prop:file r_file_perms;

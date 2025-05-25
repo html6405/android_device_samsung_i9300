@@ -1,1 +1,0 @@
-allow art_boot glgps_exec:file r_file_perms;

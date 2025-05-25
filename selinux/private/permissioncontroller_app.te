@@ -1,5 +1,0 @@
-allow permissioncontroller_app init:binder call;
-allow permissioncontroller_app ion_device:chr_file write;
-allow permissioncontroller_app vendor_file:file { execute getattr read };
-allow permissioncontroller_app vendor_file:file open;
-allow permissioncontroller_app unlabeled:file r_file_perms;

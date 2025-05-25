@@ -1,5 +1,0 @@
-# wifi_killer
-type wifi_killer_enabler, domain;
-type wifi_killer_enabler_exec, exec_type, file_type;
-
-init_daemon_domain(wifi_killer_enabler)

@@ -1,3 +1,0 @@
-allow radio method_trace_data_file:file { read unlink execute };
-allow radio init:binder { call transfer };
-allow radio unlabeled:file r_file_perms;

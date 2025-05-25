@@ -1,1 +1,0 @@
-allow gpu_device sysfs:filesystem associate;

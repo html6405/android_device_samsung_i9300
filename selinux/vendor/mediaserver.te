@@ -1,8 +1,0 @@
-allow mediaserver system_file:file execmod;
-allow mediaserver mfc_device:chr_file rw_file_perms;
-allow mediaserver ion_device:chr_file rw_file_perms;
-allow mediaserver glgps_exec:file r_file_perms;
-allow mediaserver init:binder { call transfer };
-allow mediaserver exported_camera_prop:file { getattr open read };
-allow mediaserver vendor_file:file rx_file_perms;
-allow mediaserver vendor_default_prop:file r_file_perms;

@@ -1,3 +1,0 @@
-allow dexoptanalyzer apk_data_file:file read;
-allow dexoptanalyzer system_data_file:lnk_file read;
-allow dexoptanalyzer system_file:file lock;

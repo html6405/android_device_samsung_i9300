@@ -1,1 +1,0 @@
-allow derive_classpath glgps_exec:file { getattr read };
